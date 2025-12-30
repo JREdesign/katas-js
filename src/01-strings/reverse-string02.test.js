@@ -14,7 +14,19 @@ describe("reverseString", () => {
     expect(reverseString("a b")).toBe("b a");
   });
 
+  it("funciona con caracteres unicode simples", () => {
+    expect(reverseString("ñandú")).toBe("údnañ");
+  });
+
+  it("no modifica el valor original (strings son inmutables)", () => {
+    const s = "abc";
+    reverseString(s);
+    expect(s).toBe("abc");
+  });
+
   it("lanza error si no es string", () => {
     expect(() => reverseString(123)).toThrow(TypeError);
+    expect(() => reverseString(null)).toThrow(TypeError);
+    expect(() => reverseString(undefined)).toThrow(TypeError);
   });
 });
