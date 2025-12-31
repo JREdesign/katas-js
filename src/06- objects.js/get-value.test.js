@@ -27,5 +27,10 @@ describe("getValue", () => {
     expect(() => getValue(123, "a")).toThrow(TypeError);
   });
 
+    it("lanza error si path no es string", () => {
+    expect(() => getValue({ a: 1 }, ["a"])).toThrow(TypeError);
+  });
+});
+
 
 
