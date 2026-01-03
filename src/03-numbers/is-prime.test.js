@@ -22,3 +22,8 @@ describe("isPrime", () => {
     expect(isPrime(100)).toBe(false);
   });
 
+  it("lanza error si no es entero", () => {
+    expect(() => isPrime(2.2)).toThrow(TypeError);
+    expect(() => isPrime("7")).toThrow(TypeError);
+  });
+});
