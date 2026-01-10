@@ -13,3 +13,8 @@ describe("compactArray", () => {
   it("devuelve array vacío si arr está vacío", () => {
     expect(compactArray([])).toEqual([]);
   });
+
+  it("lanza error si no es array", () => {
+    expect(() => compactArray("no")).toThrow(TypeError);
+  });
+});
