@@ -24,5 +24,9 @@ describe("debounce", () => {
     vi.useRealTimers();
   });
 
-
+  it("lanza error si inputs no son válidos", () => {
+    expect(() => debounce(123, 10)).toThrow(TypeError);
+    expect(() => debounce(() => {}, -1)).toThrow(TypeError);
+    expect(() => debounce(() => {}, 1.2)).toThrow(TypeError);
+  });
 });
