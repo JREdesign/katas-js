@@ -17,4 +17,13 @@ describe("factorial", () => {
     expect(factorial(10)).toBe(3628800);
   });
 
- 
+  it("lanza error si no es entero", () => {
+    expect(() => factorial(2.5)).toThrow();
+    expect(() => factorial("5")).toThrow();
+  });
+
+  it("lanza error si es negativo", () => {
+    expect(() => factorial(-1)).toThrow();
+    expect(() => factorial(-10)).toThrow();
+  });
+});
