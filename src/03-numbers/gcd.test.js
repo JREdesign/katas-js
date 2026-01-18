@@ -16,4 +16,8 @@ describe("gcd", () => {
     expect(gcd(-10, 0)).toBe(10);
   });
 
+  it("lanza error si no son enteros", () => {
+    expect(() => gcd(1.2, 3)).toThrow(TypeError);
+    expect(() => gcd("2", 3)).toThrow(TypeError);
+  });
 });
