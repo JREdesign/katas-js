@@ -8,3 +8,10 @@ describe("compactArray", () => {
 
   it("elimina strings vacíos", () => {
     expect(compactArray(["a", "", "b"])).toEqual(["a", "b"]);
+it("mantiene valores truthy", () => {
+    expect(compactArray(["a", [], {}, 5])).toEqual(["a", [], {}, 5]);
+  });
+
+  it("devuelve array vacío si arr está vacío", () => {
+    expect(compactArray([])).toEqual([]);
+  });
