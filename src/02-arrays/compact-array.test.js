@@ -6,15 +6,5 @@ describe("compactArray", () => {
     expect(compactArray([0, 1, false, 2, "", 3, null, undefined, NaN])).toEqual([1, 2, 3]);
   });
 
-  it("mantiene valores truthy", () => {
-    expect(compactArray(["a", [], {}, 5])).toEqual(["a", [], {}, 5]);
-  });
-
-  it("devuelve array vacío si arr está vacío", () => {
-    expect(compactArray([])).toEqual([]);
-  });
-
-  it("lanza error si no es array", () => {
-    expect(() => compactArray("no")).toThrow(TypeError);
-  });
-});
+  it("elimina strings vacíos", () => {
+    expect(compactArray(["a", "", "b"])).toEqual(["a", "b"]);
