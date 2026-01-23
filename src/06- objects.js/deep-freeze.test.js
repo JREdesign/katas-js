@@ -11,3 +11,13 @@ describe("deepFreeze", () => {
     expect(Object.isFrozen(obj.a)).toBe(true);
     expect(Object.isFrozen(obj.a.b)).toBe(true);
   });
+it("devuelve el mismo objeto", () => {
+    const obj = { a: 1 };
+    expect(deepFreeze(obj)).toBe(obj);
+  });
+
+  it("lanza error si no es objeto", () => {
+    expect(() => deepFreeze(null)).toThrow(TypeError);
+    expect(() => deepFreeze(123)).toThrow(TypeError);
+  });
+});
