@@ -9,3 +9,8 @@ describe("flattenOneLevel", () => {
   it("no aplana niveles más profundos", () => {
     expect(flattenOneLevel([1, [2, [3]], 4])).toEqual([1, 2, [3], 4]);
   });
+
+  it("lanza error si no es array", () => {
+    expect(() => flattenOneLevel("no")).toThrow(TypeError);
+  });
+});
