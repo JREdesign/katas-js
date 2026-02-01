@@ -5,3 +5,7 @@ describe("countWords", () => {
   it("cuenta palabras básicas", () => {
     expect(countWords("hola mundo")).toBe(2);
   });
+
+  it("ignora espacios extra", () => {
+    expect(countWords("  hola   mundo  ")).toBe(2);
+  });
