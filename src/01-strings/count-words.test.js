@@ -17,4 +17,5 @@ describe("countWords", () => {
 
   it("lanza error si no es string", () => {
     expect(() => countWords(123)).toThrow(TypeError);
-  
+  });
+});
