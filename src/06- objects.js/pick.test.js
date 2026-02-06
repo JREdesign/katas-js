@@ -6,3 +6,6 @@ describe("pick", () => {
     const user = { id: 1, name: "Jorge", role: "admin" };
     expect(pick(user, ["id", "role"])).toEqual({ id: 1, role: "admin" });
   });
+it("ignora claves que no existen", () => {
+    expect(pick({ id: 1 }, ["id", "missing"])).toEqual({ id: 1 });
+  });
