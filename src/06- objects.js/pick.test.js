@@ -9,3 +9,8 @@ describe("pick", () => {
 it("ignora claves que no existen", () => {
     expect(pick({ id: 1 }, ["id", "missing"])).toEqual({ id: 1 });
   });
+it("lanza error con inputs no válidos", () => {
+    expect(() => pick(null, ["a"])).toThrow(TypeError);
+    expect(() => pick({ a: 1 }, "a")).toThrow(TypeError);
+  });
+});
