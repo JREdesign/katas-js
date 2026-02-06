@@ -14,12 +14,3 @@ const out = {};
   }
   return out;
 }
-const out = {};
-  for (const k of keys) {
-    if (typeof k !== "string") {
-      throw new TypeError("pick: cada key debe ser un string");
-    }
-    if (k in obj) out[k] = obj[k];
-  }
-  return out;
-}
