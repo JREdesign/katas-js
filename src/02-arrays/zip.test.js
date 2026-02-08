@@ -13,4 +13,3 @@ describe("zip", () => {
   it("lanza error si inputs no son arrays", () => {
     expect(() => zip("no", [])).toThrow(TypeError);
   });
-});
