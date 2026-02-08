@@ -9,3 +9,8 @@ describe("zip", () => {
   it("corta por el más corto", () => {
     expect(zip([1, 2], ["a", "b", "c"])).toEqual([[1, "a"], [2, "b"]]);
   });
+
+  it("lanza error si inputs no son arrays", () => {
+    expect(() => zip("no", [])).toThrow(TypeError);
+  });
+});
