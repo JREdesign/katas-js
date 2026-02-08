@@ -5,3 +5,10 @@ export function zip(a, b) {
 
   const len = Math.min(a.length, b.length);
   const out = [];
+
+  for (let i = 0; i < len; i += 1) {
+    out.push([a[i], b[i]]);
+  }
+
+  return out;
+}
