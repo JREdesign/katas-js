@@ -10,4 +10,13 @@ describe("sleep", () => {
     p.then(() => {
       resolved = true;
     });
-    
+    vi.advanceTimersByTime(99);
+    await Promise.resolve();
+    expect(resolved).toBe(false);
+
+    vi.advanceTimersByTime(1);
+    await Promise.resolve();
+    expect(resolved).toBe(true);
+
+    vi.useRealTimers();
+  });
