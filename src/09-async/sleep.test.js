@@ -20,3 +20,8 @@ describe("sleep", () => {
 
     vi.useRealTimers();
   });
+  it("lanza error si ms no es válido", () => {
+    expect(() => sleep(-1)).toThrow(TypeError);
+    expect(() => sleep(1.2)).toThrow(TypeError);
+  });
+});
