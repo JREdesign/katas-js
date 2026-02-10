@@ -3,3 +3,5 @@ export function sleep(ms) {
           throw new TypeError("sleep: ms debe ser un entero >= 0");
             }
 }
+return new Promise((resolve) => setTimeout(resolve, ms));
+}
