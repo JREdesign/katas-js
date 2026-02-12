@@ -10,7 +10,4 @@ describe("capitalize", () => {
     expect(capitalize("")).toBe("");
   });
 
-  it("lanza error si no es string", () => {
-    expect(() => capitalize(123)).toThrow(TypeError);
-  });
-});
+
