@@ -40,3 +40,21 @@ Modo watch:
 - is-prime
 - random-int
 
+### 05-chunk-arrays
+- chunk-array (variante/iteración)
+
+### 06-objects
+- deep-freeze
+- get-value
+- pick
+
+### 07-is-palindrome
+- is-palindrome
+
+### 08-functional
+- debounce
+- debounce02
+- throttle
+
+### 09-async
+- sleep
