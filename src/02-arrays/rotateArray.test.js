@@ -14,4 +14,34 @@ describe("rotateArray", () => {
     expect(rotateArray([1, 2, 3], 0)).toEqual([1, 2, 3]);
   });
 
-  
+  it("k mayor que la longitud", () => {
+    expect(rotateArray([1, 2, 3, 4], 6)).toEqual([3, 4, 1, 2]);
+  });
+
+  it("rotación negativa", () => {
+    expect(rotateArray([1, 2, 3, 4], -1)).toEqual([2, 3, 4, 1]);
+  });
+
+  it("rotación negativa grande", () => {
+    expect(rotateArray([1, 2, 3, 4], -6)).toEqual([3, 4, 1, 2]);
+  });
+
+  it("array vacío", () => {
+    expect(rotateArray([], 5)).toEqual([]);
+  });
+
+  it("no muta el array original", () => {
+    const arr = [1, 2, 3, 4];
+    rotateArray(arr, 1);
+    expect(arr).toEqual([1, 2, 3, 4]);
+  });
+
+  it("lanza error si arr no es array", () => {
+    expect(() => rotateArray("1234", 1)).toThrow(TypeError);
+  });
+
+  it("lanza error si k no es entero", () => {
+    expect(() => rotateArray([1, 2, 3], 1.5)).toThrow(TypeError);
+    expect(() => rotateArray([1, 2, 3], "2")).toThrow(TypeError);
+  });
+});
