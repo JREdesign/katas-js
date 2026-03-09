@@ -12,7 +12,6 @@ describe("maxArray", () => {
     it("funciona con números negativos", () => {
       expect(maxArray([-10, -3, -25, -1])).toBe(-1);
     });
-
     it("funciona con números decimales", () => {
       expect(maxArray([1.5, 2.7, 2.71, 0.3])).toBe(2.71);
     });
@@ -42,3 +41,84 @@ describe("maxArray", () => {
     });
 
   });
+describe("errores de entrada", () => {
+
+    it("lanza TypeError si el argumento no es un array", () => {
+      expect(() => maxArray("no soy un array")).toThrow(TypeError);
+      expect(() => maxArray("no soy un array")).toThrow(
+        "maxArray: 'arr' debe ser un array"
+      );
+    });
+
+    it("lanza RangeError si el array está vacío", () => {
+      expect(() => maxArray([])).toThrow(RangeError);
+      expect(() => maxArray([])).toThrow(
+        "maxArray: el array no puede estar vacío"
+      );
+    });
+
+    it("lanza TypeError si el primer elemento no es un número válido", () => {
+      expect(() => maxArray([NaN, 1, 2, 3])).toThrow(TypeError);
+      expect(() => maxArray([NaN, 1, 2, 3])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+    it("lanza TypeError si algún elemento no es número", () => {
+      expect(() => maxArray([1, 2, "3", 4])).toThrow(TypeError);
+      expect(() => maxArray([1, 2, "3", 4])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+    it("lanza TypeError si algún elemento es NaN", () => {
+      expect(() => maxArray([1, 2, NaN, 4])).toThrow(TypeError);
+      expect(() => maxArray([1, 2, NaN, 4])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+  });
+
+});
+
+describe("errores de entrada", () => {
+
+    it("lanza TypeError si el argumento no es un array", () => {
+      expect(() => maxArray("no soy un array")).toThrow(TypeError);
+      expect(() => maxArray("no soy un array")).toThrow(
+        "maxArray: 'arr' debe ser un array"
+      );
+    });
+
+    it("lanza RangeError si el array está vacío", () => {
+      expect(() => maxArray([])).toThrow(RangeError);
+      expect(() => maxArray([])).toThrow(
+        "maxArray: el array no puede estar vacío"
+      );
+    });
+
+    it("lanza TypeError si el primer elemento no es un número válido", () => {
+      expect(() => maxArray([NaN, 1, 2, 3])).toThrow(TypeError);
+      expect(() => maxArray([NaN, 1, 2, 3])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+    it("lanza TypeError si algún elemento no es número", () => {
+      expect(() => maxArray([1, 2, "3", 4])).toThrow(TypeError);
+      expect(() => maxArray([1, 2, "3", 4])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+    it("lanza TypeError si algún elemento es NaN", () => {
+      expect(() => maxArray([1, 2, NaN, 4])).toThrow(TypeError);
+      expect(() => maxArray([1, 2, NaN, 4])).toThrow(
+        "maxArray: todos los elementos deben ser números válidos"
+      );
+    });
+
+  });
+
+});
