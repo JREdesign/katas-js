@@ -14,3 +14,7 @@ it("lanza error si está vacío", () => {
     expect(() => minArray([1, "2"])).toThrow();
     expect(() => minArray([1, NaN])).toThrow();
   });
+it("lanza error si no es array", () => {
+    expect(() => minArray("no")).toThrow();
+  });
+});
