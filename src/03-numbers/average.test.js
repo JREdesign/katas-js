@@ -14,3 +14,7 @@ it("lanza error si está vacío", () => {
     expect(() => average([1, "2"])).toThrow();
     expect(() => average([1, NaN])).toThrow();
   });
+it("lanza error si no es array", () => {
+    expect(() => average("no")).toThrow();
+  });
+});
