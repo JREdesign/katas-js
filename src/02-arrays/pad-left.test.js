@@ -8,3 +8,6 @@ describe("padLeft", () => {
 it("rellena con un carácter personalizado", () => {
     expect(padLeft("7", 3, "0")).toBe("007");
   });
+it("si ya tiene longitud suficiente, devuelve igual", () => {
+    expect(padLeft("hola", 2)).toBe("hola");
+  });
