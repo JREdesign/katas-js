@@ -1,4 +1,4 @@
-# Katas JS
+  # Katas JS
 
 Repositorio de katas pequeñas en JavaScript para practicar de forma constante, con soluciones simples y tests.
 
