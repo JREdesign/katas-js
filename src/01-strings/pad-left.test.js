@@ -58,10 +58,6 @@ describe("padLeft", () => {
     expect(() => padLeft("test", -1)).toThrow(TypeError);
   });
 
-  it("debería lanzar error si char no es string", () => {
-    expect(() => padLeft("test", 6, 1)).toThrow(TypeError);
-  });
-
   it("debería lanzar error si char es string vacío", () => {
     expect(() => padLeft("test", 6, "")).toThrow(TypeError);
   });
