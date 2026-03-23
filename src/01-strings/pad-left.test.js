@@ -43,5 +43,27 @@ describe("padLeft", () => {
   it("debería devolver string vacío si length es 0", () => {
     expect(padLeft("", 0)).toBe("");
   });
+// =========================
+  // Errores
+  // =========================
+  it("debería lanzar error si input no es string", () => {
+    expect(() => padLeft(123, 5)).toThrow(TypeError);
+  });
 
+  it("debería lanzar error si length no es entero", () => {
+    expect(() => padLeft("test", 2.5)).toThrow(TypeError);
+  });
+
+  it("debería lanzar error si length es negativo", () => {
+    expect(() => padLeft("test", -1)).toThrow(TypeError);
+  });
+
+  it("debería lanzar error si char no es string", () => {
+    expect(() => padLeft("test", 6, 1)).toThrow(TypeError);
+  });
+
+  it("debería lanzar error si char es string vacío", () => {
+    expect(() => padLeft("test", 6, "")).toThrow(TypeError);
+  });
+});
   
