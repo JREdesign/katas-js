@@ -21,3 +21,27 @@ describe("padLeft", () => {
   it("debería manejar correctamente longitud exacta", () => {
     expect(padLeft("test", 4)).toBe("test");
   });
+
+  // =========================
+  // Caracteres múltiples
+  // =========================
+  it("debería rellenar correctamente con strings de más de un carácter", () => {
+    expect(padLeft("test", 10, "ab")).toBe("abababtest");
+  });
+
+  it("debería cortar el relleno si se pasa de longitud", () => {
+    expect(padLeft("test", 9, "abc")).toBe("abcabtest");
+  });
+
+  // =========================
+  // Edge cases
+  // =========================
+  it("debería funcionar con string vacío", () => {
+    expect(padLeft("", 3)).toBe("   ");
+  });
+
+  it("debería devolver string vacío si length es 0", () => {
+    expect(padLeft("", 0)).toBe("");
+  });
+
+  
