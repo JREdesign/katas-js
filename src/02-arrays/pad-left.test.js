@@ -11,3 +11,6 @@ it("rellena con un carácter personalizado", () => {
 it("si ya tiene longitud suficiente, devuelve igual", () => {
     expect(padLeft("hola", 2)).toBe("hola");
   });
+it("si ya tiene longitud suficiente, devuelve igual", () => {
+    expect(padLeft("hola", 2)).toBe("hola");
+  });
