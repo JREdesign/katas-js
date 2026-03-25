@@ -1,6 +1,27 @@
 export function startsWithCI(input, prefix) {
-  if (typeof input !== "string" || typeof prefix !== "string") {
-    throw new TypeError("startsWithCI: input y prefix deben ser strings");
+  // Validación de tipos
+  if (typeof input !== "string") {
+    throw new TypeError("startsWithCI: input debe ser un string");
   }
-  return input.toLowerCase().startsWith(prefix.toLowerCase());
+
+  if (typeof prefix !== "string") {
+    throw new TypeError("startsWithCI: prefix debe ser un string");
+  }
+
+  // Convertir ambos valores a minúsculas
+  const normalizedInput = input.toLowerCase();
+  const normalizedPrefix = prefix.toLowerCase();
+
+  // Obtener la longitud del prefijo
+  const prefixLength = normalizedPrefix.length;
+
+  // Extraer la parte inicial del string
+  const inputStart = normalizedInput.slice(0, prefixLength);
+
+  // Comparar manualmente
+  if (inputStart === normalizedPrefix) {
+    return true;
+  } else {
+    return false;
+  }
 }
