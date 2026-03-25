@@ -9,3 +9,8 @@ describe("startsWithCI", () => {
  it("devuelve false si no coincide", () => {
     expect(startsWithCI("Hola", "ad")).toBe(false);
   });
+  it("errores si inputs no son strings", () => {
+    expect(() => startsWithCI(1, "a")).toThrow();
+    expect(() => startsWithCI("a", null)).toThrow();
+  });
+});
