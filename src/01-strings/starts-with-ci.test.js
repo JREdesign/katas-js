@@ -6,3 +6,6 @@ describe("startsWithCI", () => {
     expect(startsWithCI("Hola Mundo", "ho")).toBe(true);
     expect(startsWithCI("Hola Mundo", "HO")).toBe(true);
   });
+ it("devuelve false si no coincide", () => {
+    expect(startsWithCI("Hola", "ad")).toBe(false);
+  });
