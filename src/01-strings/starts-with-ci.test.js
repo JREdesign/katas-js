@@ -1,1 +1,8 @@
+import { describe, it, expect } from "vitest";
+import { startsWithCI } from "./starts-with-ci.js";
 
+describe("startsWithCI", () => {
+  it("comprueba prefijo sin importar mayúsculas", () => {
+    expect(startsWithCI("Hola Mundo", "ho")).toBe(true);
+    expect(startsWithCI("Hola Mundo", "HO")).toBe(true);
+  });
