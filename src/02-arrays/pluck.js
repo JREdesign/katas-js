@@ -5,3 +5,5 @@ export function pluck(arr, key) {
   if (typeof key !== "string") {
     throw new TypeError("pluck: key debe ser un string");
   }
+  return arr.map((item) => (item && typeof item === "object" ? item[key] : undefined));
+}
