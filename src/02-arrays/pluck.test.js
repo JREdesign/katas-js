@@ -10,3 +10,8 @@ describe("pluck", () => {
     const mixed = [{ a: 1 }, 2, null, { b: 3 }];
     expect(pluck(mixed, "a")).toEqual([1, undefined, undefined, undefined]);
   });
+  it("errores con inputs inválidos", () => {
+    expect(() => pluck("no", "a")).toThrow();
+    expect(() => pluck([], 1)).toThrow();
+  });
+});
