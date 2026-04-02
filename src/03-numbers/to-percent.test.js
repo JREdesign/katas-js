@@ -9,3 +9,8 @@ describe("toPercent", () => {
   it("redondea según decimales", () => {
     expect(toPercent(0.1299, 1)).toBe(13);
   });
+  it("errores con inputs inválidos", () => {
+    expect(() => toPercent("0.5")).toThrow();
+    expect(() => toPercent(0.5, -1)).toThrow();
+  });
+});
