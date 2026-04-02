@@ -18,3 +18,8 @@ describe("toPercent", () => {
     expect(toPercent(0)).toBe(0);
     expect(toPercent(0, 2)).toBe(0);
   });
+
+  it("maneja correctamente el 1 (100%)", () => {
+    expect(toPercent(1)).toBe(100);
+    expect(toPercent(1, 2)).toBe(100);
+  });
