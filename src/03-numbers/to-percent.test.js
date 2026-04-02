@@ -14,3 +14,7 @@ describe("toPercent", () => {
     expect(() => toPercent(0.5, -1)).toThrow();
   });
 });
+  it("maneja correctamente el 0", () => {
+    expect(toPercent(0)).toBe(0);
+    expect(toPercent(0, 2)).toBe(0);
+  });
