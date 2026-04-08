@@ -9,3 +9,8 @@ describe("endsWithCI", () => {
  it("devuelve false si no coincide", () => {
     expect(endsWithCI("Hola", "ad")).toBe(false);
   });
+  it("lanza error si inputs no son strings", () => {
+    expect(() => endsWithCI(1, "a")).toThrow();
+    expect(() => endsWithCI("a", null)).toThrow();
+  });
+});
