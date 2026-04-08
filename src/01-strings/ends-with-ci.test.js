@@ -6,3 +6,6 @@ describe("endsWithCI", () => {
     expect(endsWithCI("Hola Mundo", "DO")).toBe(true);
     expect(endsWithCI("Hola Mundo", "do")).toBe(true);
   });
+ it("devuelve false si no coincide", () => {
+    expect(endsWithCI("Hola", "ad")).toBe(false);
+  });
