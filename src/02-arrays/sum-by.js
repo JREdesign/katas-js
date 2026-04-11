@@ -14,3 +14,5 @@ export function sumBy(arr, fn) {
     }
     sum += value;
   }
+  return sum;
+}
