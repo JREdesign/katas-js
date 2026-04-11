@@ -5,14 +5,14 @@ export function sumBy(arr, fn) {
   if (typeof fn !== "function") {
     throw new TypeError("sumBy: fn debe ser función");
   }
- let sum = 0;
 
-  for (const item of arr) {
+  return arr.reduce((sum, item) => {
     const value = fn(item);
+
     if (typeof value !== "number" || Number.isNaN(value)) {
       throw new TypeError("sumBy: fn debe devolver numbers válidos");
     }
-    sum += value;
-  }
-  return sum;
+
+    return sum + value;
+  }, 0);
 }
