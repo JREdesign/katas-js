@@ -16,4 +16,4 @@ export function sumBy(arr, fn) {
     return sum + value;
   }, 0);
 }
-.
+
