@@ -13,3 +13,8 @@ describe("sumBy", () => {
     expect(() => sumBy([{ a: 1 }], item => item.missing)).toThrow();
     expect(() => sumBy([1], () => NaN)).toThrow();
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => sumBy("no", x => x)).toThrow();
+    expect(() => sumBy([], 1)).toThrow();
+  });
+});
