@@ -6,3 +6,6 @@ describe("sumBy", () => {
     const items = [{ n: 2 }, { n: 3 }, { n: 5 }];
     expect(sumBy(items, item => item.n)).toBe(10);
   });
+  it("devuelve 0 si el array está vacío", () => {
+    expect(sumBy([], x => x)).toBe(0);
+  });
