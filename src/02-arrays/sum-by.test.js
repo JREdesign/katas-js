@@ -9,3 +9,7 @@ describe("sumBy", () => {
   it("devuelve 0 si el array está vacío", () => {
     expect(sumBy([], x => x)).toBe(0);
   });
+  it("lanza error si fn no devuelve números válidos", () => {
+    expect(() => sumBy([{ a: 1 }], item => item.missing)).toThrow();
+    expect(() => sumBy([1], () => NaN)).toThrow();
+  });
