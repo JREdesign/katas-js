@@ -24,6 +24,7 @@ Modo watch:
 - slugify
 - count-words
 - capitalize
+- normalize-whitespace
 
 ### 02-arrays
 - chunk-array
