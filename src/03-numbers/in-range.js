@@ -9,3 +9,5 @@ export function inRange(value, min, max) {
   if (min > max) {
     throw new RangeError("inRange: min no puede ser mayor que max");
   }
+  return value >= min && value <= max;
+}
