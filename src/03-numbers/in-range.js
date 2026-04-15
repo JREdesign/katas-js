@@ -6,3 +6,9 @@ export function inRange(value, min, max) {
   ) {
     throw new TypeError("inRange: value, min y max deben ser numbers válidos");
   }
+  if (min > max) {
+    throw new RangeError("inRange: min no puede ser mayor que max");
+  }
+
+  return value >= min && value <= max;
+}
