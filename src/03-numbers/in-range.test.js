@@ -7,3 +7,7 @@ describe("inRange", () => {
     expect(inRange(1, 1, 10)).toBe(true);
     expect(inRange(10, 1, 10)).toBe(true);
   });
+it("devuelve false si está fuera del rango", () => {
+    expect(inRange(0, 1, 10)).toBe(false);
+    expect(inRange(11, 1, 10)).toBe(false);
+  });
