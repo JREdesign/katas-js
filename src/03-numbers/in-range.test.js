@@ -14,3 +14,8 @@ it("devuelve false si está fuera del rango", () => {
   it("lanza error si min > max", () => {
     expect(() => inRange(5, 10, 1)).toThrow();
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => inRange("5", 1, 10)).toThrow();
+    expect(() => inRange(5, NaN, 10)).toThrow();
+  });
+});
