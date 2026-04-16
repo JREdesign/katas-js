@@ -11,3 +11,6 @@ it("devuelve false si está fuera del rango", () => {
     expect(inRange(0, 1, 10)).toBe(false);
     expect(inRange(11, 1, 10)).toBe(false);
   });
+  it("lanza error si min > max", () => {
+    expect(() => inRange(5, 10, 1)).toThrow();
+  });
