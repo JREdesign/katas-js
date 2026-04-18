@@ -14,3 +14,11 @@ describe("invertObject", () => {
     expect(invertObject({ a: true, b: false })).toEqual({ "true": "a", "false": "b" });
   });
 
+
+
+  
+  it("lanza error con inputs inválidos", () => {
+    expect(() => invertObject(null)).toThrow();
+    expect(() => invertObject([1, 2])).toThrow();
+  });
+});
