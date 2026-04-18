@@ -9,3 +9,8 @@ describe("invertObject", () => {
   it("si hay valores duplicados, prevalece la última clave", () => {
     expect(invertObject({ a: 1, b: 1 })).toEqual({ "1": "b" });
   });
+
+  it("convierte valores a string para usarlos como clave", () => {
+    expect(invertObject({ a: true, b: false })).toEqual({ "true": "a", "false": "b" });
+  });
+
