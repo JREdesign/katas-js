@@ -13,9 +13,6 @@ describe("invertObject", () => {
   it("convierte valores a string para usarlos como clave", () => {
     expect(invertObject({ a: true, b: false })).toEqual({ "true": "a", "false": "b" });
   });
-
-
-
   
   it("lanza error con inputs inválidos", () => {
     expect(() => invertObject(null)).toThrow();
