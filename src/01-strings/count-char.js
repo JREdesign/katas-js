@@ -9,3 +9,6 @@ export function countChar(input, char) {
   for (const current of input) {
     if (current === char) count += 1;
   }
+
+  return count;
+}
