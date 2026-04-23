@@ -9,3 +9,9 @@ describe("countChar", () => {
   it("devuelve 0 si no aparece", () => {
     expect(countChar("hola", "z")).toBe(0);
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => countChar(123, "a")).toThrow();
+    expect(() => countChar("hola", "")).toThrow();
+    expect(() => countChar("hola", "ab")).toThrow();
+  });
+});
