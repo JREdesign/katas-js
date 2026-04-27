@@ -6,3 +6,7 @@ describe("lastItem", () => {
     expect(lastItem([1, 2, 3])).toBe(3);
     expect(lastItem(["a", "b"])).toBe("b");
   });
+
+  it("devuelve undefined si está vacío", () => {
+    expect(lastItem([])).toBe(undefined);
+  });
