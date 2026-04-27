@@ -10,3 +10,8 @@ describe("lastItem", () => {
   it("devuelve undefined si está vacío", () => {
     expect(lastItem([])).toBe(undefined);
   });
+
+  it("lanza error si no es array", () => {
+    expect(() => lastItem("no")).toThrow();
+  });
+});
