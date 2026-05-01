@@ -8,3 +8,8 @@ describe("mapValues", () => {
   it("recibe también la clave", () => {
     expect(mapValues({ a: 1 }, (value, key) => `${key}:${value}`)).toEqual({ a: "a:1" });
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => mapValues(null, x => x)).toThrow();
+    expect(() => mapValues([], x => x)).toThrow();
+    expect(() => mapValues({ a: 1 }, 123)).toThrow();
+  });
