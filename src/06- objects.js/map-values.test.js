@@ -13,3 +13,6 @@ describe("mapValues", () => {
     expect(() => mapValues([], x => x)).toThrow();
     expect(() => mapValues({ a: 1 }, 123)).toThrow();
   });
+  it("devuelve un objeto vacío si recibe un objeto vacío", () => {
+    expect(mapValues({}, value => value)).toEqual({});
+  });
