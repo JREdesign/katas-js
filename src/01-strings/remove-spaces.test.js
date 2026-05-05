@@ -11,3 +11,7 @@ describe("removeSpaces", () => {
   it("devuelve el mismo string si no hay espacios", () => {
     expect(removeSpaces("abc")).toBe("abc");
   });
+  it("lanza error si no es string", () => {
+    expect(() => removeSpaces(123)).toThrow();
+  });
+});
