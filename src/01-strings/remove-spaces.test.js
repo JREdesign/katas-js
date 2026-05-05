@@ -5,3 +5,6 @@ describe("removeSpaces", () => {
   it("elimina espacios normales", () => {
     expect(removeSpaces("hola mundo")).toBe("holamundo");
   });
+  it("elimina múltiples espacios y saltos de línea", () => {
+    expect(removeSpaces(" hola   mundo\njs ")).toBe("holamundojs");
+  });
