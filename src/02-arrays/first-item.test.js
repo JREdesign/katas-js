@@ -6,3 +6,6 @@ describe("firstItem", () => {
     expect(firstItem([1, 2, 3])).toBe(1);
     expect(firstItem(["a", "b"])).toBe("a");
   });
+  it("devuelve undefined si está vacío", () => {
+    expect(firstItem([])).toBe(undefined);
+  });
