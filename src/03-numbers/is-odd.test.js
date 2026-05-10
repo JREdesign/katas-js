@@ -13,3 +13,9 @@ describe("isOdd", () => {
     expect(isOdd(2)).toBe(false);
     expect(isOdd(-4)).toBe(false);
   });
+
+  it("lanza error si no es entero", () => {
+    expect(() => isOdd(1.5)).toThrow();
+    expect(() => isOdd("3")).toThrow();
+  });
+});
