@@ -9,3 +9,9 @@ describe("objectSize", () => {
   it("devuelve 0 para objeto vacío", () => {
     expect(objectSize({})).toBe(0);
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => objectSize(null)).toThrow();
+    expect(() => objectSize([])).toThrow();
+    expect(() => objectSize("no")).toThrow();
+  });
+});
