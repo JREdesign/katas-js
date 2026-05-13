@@ -5,3 +5,7 @@ describe("objectSize", () => {
   it("cuenta claves propias enumerables", () => {
     expect(objectSize({ a: 1, b: 2 })).toBe(2);
   });
+
+  it("devuelve 0 para objeto vacío", () => {
+    expect(objectSize({})).toBe(0);
+  });
