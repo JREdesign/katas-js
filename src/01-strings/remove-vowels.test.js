@@ -8,3 +8,6 @@ describe("removeVowels", () => {
   it("elimina vocales con tilde", () => {
     expect(removeVowels("camión aéreo")).toBe("cmn r");
   });
+  it("respeta consonantes, espacios y signos", () => {
+    expect(removeVowels("JS!")).toBe("JS!");
+  });
