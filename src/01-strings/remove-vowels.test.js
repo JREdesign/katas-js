@@ -11,3 +11,7 @@ describe("removeVowels", () => {
   it("respeta consonantes, espacios y signos", () => {
     expect(removeVowels("JS!")).toBe("JS!");
   });
+  it("lanza error si no es string", () => {
+    expect(() => removeVowels(123)).toThrow();
+  });
+});
