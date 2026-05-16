@@ -13,5 +13,8 @@ describe("removeVowels", () => {
   });
   it("lanza error si no es string", () => {
     expect(() => removeVowels(123)).toThrow();
+  it("elimina vocales en mayúsculas", () => {
+    expect(removeVowels("HOLA MUNDO")).toBe("HL MND");
   });
+
 });
