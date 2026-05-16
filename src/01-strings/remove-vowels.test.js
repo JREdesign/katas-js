@@ -16,5 +16,7 @@ describe("removeVowels", () => {
   it("elimina vocales en mayúsculas", () => {
     expect(removeVowels("HOLA MUNDO")).toBe("HL MND");
   });
-
+    it("devuelve string vacío si recibe string vacío", () => {
+    expect(removeVowels("")).toBe("");
+  });
 });
