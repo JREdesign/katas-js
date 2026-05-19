@@ -9,3 +9,7 @@ describe("removeFalsy", () => {
   it("mantiene arrays y objetos vacíos porque son truthy", () => {
     expect(removeFalsy([{}, [], "ok"])).toEqual([{}, [], "ok"]);
   });
+
+  it("devuelve array vacío si todo es falsy", () => {
+    expect(removeFalsy([0, false, "", null, undefined])).toEqual([]);
+  });
