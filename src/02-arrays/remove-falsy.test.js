@@ -13,3 +13,8 @@ describe("removeFalsy", () => {
   it("devuelve array vacío si todo es falsy", () => {
     expect(removeFalsy([0, false, "", null, undefined])).toEqual([]);
   });
+  
+  it("lanza error si no es array", () => {
+    expect(() => removeFalsy("no")).toThrow();
+  });
+});
