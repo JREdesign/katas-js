@@ -16,3 +16,14 @@ describe("square", () => {
     expect(square(1.5)).toBe(2.25);
     expect(square(-2.5)).toBe(6.25);
   });
+
+  it("lanza error para valores infinitos", () => {
+    expect(() => square(Infinity)).toThrow();
+    expect(() => square(-Infinity)).toThrow();
+  });
+
+  it("lanza error si no es number válido", () => {
+    expect(() => square("2")).toThrow();
+    expect(() => square(NaN)).toThrow();
+  });
+});
