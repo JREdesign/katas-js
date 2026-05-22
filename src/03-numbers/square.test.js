@@ -6,3 +6,6 @@ describe("square", () => {
     expect(square(2)).toBe(4);
     expect(square(5)).toBe(25);
   });
+  it("calcula el cuadrado de números negativos", () => {
+    expect(square(-3)).toBe(9);
+  });
