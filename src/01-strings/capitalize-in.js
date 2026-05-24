@@ -13,3 +13,9 @@ function renderFrame(time) {
     message: "Running visual layer...",
   };
 }
+
+
+setInterval(() => {
+  const frame = renderFrame(Date.now());
+  console.log(frame.message, frame.opacity.toFixed(2));
+}, 1000);
