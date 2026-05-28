@@ -10,3 +10,5 @@ export function objectValuesSum(obj) {
     }
     sum += value;
   }
+  return sum;
+}
