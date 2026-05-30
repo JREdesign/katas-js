@@ -12,3 +12,8 @@ describe("objectValuesSum", () => {
     expect(() => objectValuesSum({ a: 1, b: "2" })).toThrow();
     expect(() => objectValuesSum({ a: NaN })).toThrow();
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => objectValuesSum(null)).toThrow();
+    expect(() => objectValuesSum([])).toThrow();
+  });
+});
