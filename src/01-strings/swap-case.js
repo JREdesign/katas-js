@@ -6,3 +6,10 @@ export function swapCase(input) {
     .map((char) => {
       const lower = char.toLowerCase();
       const upper = char.toUpperCase();
+
+      if (char === lower && char !== upper) return upper;
+      if (char === upper && char !== lower) return lower;
+      return char;
+    })
+    .join("");
+}
