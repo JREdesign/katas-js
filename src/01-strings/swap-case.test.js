@@ -5,3 +5,6 @@ describe("swapCase", () => {
   it("intercambia mayúsculas y minúsculas", () => {
     expect(swapCase("Hola Mundo")).toBe("hOLA mUNDO");
   });
+  it("mantiene números y símbolos", () => {
+    expect(swapCase("JS 123!")).toBe("js 123!");
+  });
