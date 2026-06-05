@@ -14,4 +14,8 @@ describe("swapCase", () => {
   it("lanza error si no es string", () => {
     expect(() => swapCase(123)).toThrow();
   });
+    it("convierte todo minúsculas a mayúsculas", () => {
+    expect(swapCase("hola mundo")).toBe("HOLA MUNDO");
+  });
+
 });
