@@ -8,3 +8,6 @@ describe("swapCase", () => {
   it("mantiene números y símbolos", () => {
     expect(swapCase("JS 123!")).toBe("js 123!");
   });
+  it("devuelve string vacío si input está vacío", () => {
+    expect(swapCase("")).toBe("");
+  });
