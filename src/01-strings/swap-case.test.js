@@ -11,3 +11,7 @@ describe("swapCase", () => {
   it("devuelve string vacío si input está vacío", () => {
     expect(swapCase("")).toBe("");
   });
+  it("lanza error si no es string", () => {
+    expect(() => swapCase(123)).toThrow();
+  });
+});
