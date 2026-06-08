@@ -5,3 +5,6 @@ export function drop(arr, count = 1) {
   if (!Number.isInteger(count) || count < 0) {
     throw new TypeError("drop: count debe ser un entero >= 0");
   }
+
+  return arr.slice(count);
+}
