@@ -12,3 +12,8 @@ describe("drop", () => {
   it("si count es 0 devuelve copia completa", () => {
     expect(drop([1, 2], 0)).toEqual([1, 2]);
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => drop("no")).toThrow();
+    expect(() => drop([1, 2], -1)).toThrow();
+  });
+});
