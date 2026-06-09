@@ -25,4 +25,10 @@ it("lanza error si no es number válido", () => {
     expect(cube(0.5)).toBeCloseTo(0.125);
   });
 
+    it("calcula correctamente el cubo de números decimales negativos", () => {
+    expect(cube(-1.5)).toBeCloseTo(-3.375);
+    expect(cube(-0.5)).toBeCloseTo(-0.125);
+  });
+
+
 });
