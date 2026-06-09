@@ -6,3 +6,6 @@ describe("cube", () => {
     expect(cube(2)).toBe(8);
     expect(cube(3)).toBe(27);
   });
+  it("calcula el cubo de números negativos", () => {
+    expect(cube(-2)).toBe(-8);
+  });
