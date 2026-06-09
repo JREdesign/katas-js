@@ -19,4 +19,10 @@ it("lanza error si no es number válido", () => {
     expect(() => cube("2")).toThrow();
     expect(() => cube(NaN)).toThrow();
   });
+
+  it("calcula correctamente el cubo de números decimales positivos", () => {
+    expect(cube(1.5)).toBeCloseTo(3.375);
+    expect(cube(0.5)).toBeCloseTo(0.125);
+  });
+
 });
