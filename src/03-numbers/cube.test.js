@@ -20,3 +20,9 @@ describe("cube", () => {
     expect(cube(2)).toBe(8);
     expect(cube(3)).toBe(27);
   });
+
+it("lanza error si no es number válido", () => {
+    expect(() => cube("2")).toThrow();
+    expect(() => cube(NaN)).toThrow();
+  });
+});
