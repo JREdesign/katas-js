@@ -8,3 +8,9 @@ describe("keysToArray", () => {
   it("devuelve array vacío para objeto vacío", () => {
     expect(keysToArray({})).toEqual([]);
   });
+  it("lanza error con inputs inválidos", () => {
+    expect(() => keysToArray(null)).toThrow();
+    expect(() => keysToArray([])).toThrow();
+    expect(() => keysToArray("no")).toThrow();
+  });
+});
