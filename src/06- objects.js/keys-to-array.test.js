@@ -5,3 +5,6 @@ describe("keysToArray", () => {
   it("devuelve las claves de un objeto", () => {
     expect(keysToArray({ a: 1, b: 2 })).toEqual(["a", "b"]);
   });
+  it("devuelve array vacío para objeto vacío", () => {
+    expect(keysToArray({})).toEqual([]);
+  });
