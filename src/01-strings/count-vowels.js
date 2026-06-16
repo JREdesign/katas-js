@@ -4,3 +4,6 @@ export function countVowels(input) {
   }
 
   const matches = input.match(/[aeiouáéíóúü]/gi);
+
+  return matches ? matches.length : 0;
+}
