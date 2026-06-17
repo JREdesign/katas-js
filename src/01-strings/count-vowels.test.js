@@ -8,3 +8,6 @@ describe("countVowels", () => {
   it("ignora mayúsculas y cuenta vocales con tilde", () => {
     expect(countVowels("ÁRBOL ÚNICO")).toBe(5);
   });
+  it("devuelve 0 si no hay vocales", () => {
+    expect(countVowels("rhythm")).toBe(0);
+  });
