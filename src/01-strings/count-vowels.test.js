@@ -5,3 +5,6 @@ describe("countVowels", () => {
   it("cuenta las vocales de un texto", () => {
     expect(countVowels("hola mundo")).toBe(4);
   });
+  it("ignora mayúsculas y cuenta vocales con tilde", () => {
+    expect(countVowels("ÁRBOL ÚNICO")).toBe(5);
+  });
