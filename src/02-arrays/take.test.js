@@ -14,3 +14,9 @@ describe("take", () => {
   it("devuelve un array vacío si count es 0", () => {
     expect(take([1, 2, 3], 0)).toEqual([]);
   });
+  it("lanza error con argumentos inválidos", () => {
+    expect(() => take("no")).toThrow(TypeError);
+    expect(() => take([], -1)).toThrow(TypeError);
+    expect(() => take([], 1.5)).toThrow(TypeError);
+  });
+});
