@@ -5,3 +5,6 @@ describe("take", () => {
   it("devuelve el primer elemento por defecto", () => {
     expect(take([1, 2, 3])).toEqual([1]);
   });
+  it("devuelve la cantidad indicada de elementos", () => {
+    expect(take([1, 2, 3, 4], 3)).toEqual([1, 2, 3]);
+  });
