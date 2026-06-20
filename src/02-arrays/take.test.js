@@ -11,3 +11,6 @@ describe("take", () => {
   it("devuelve todo el array si count es mayor que su longitud", () => {
     expect(take([1, 2], 10)).toEqual([1, 2]);
   });
+  it("devuelve un array vacío si count es 0", () => {
+    expect(take([1, 2, 3], 0)).toEqual([]);
+  });
