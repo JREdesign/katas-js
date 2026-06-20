@@ -8,3 +8,6 @@ describe("take", () => {
   it("devuelve la cantidad indicada de elementos", () => {
     expect(take([1, 2, 3, 4], 3)).toEqual([1, 2, 3]);
   });
+  it("devuelve todo el array si count es mayor que su longitud", () => {
+    expect(take([1, 2], 10)).toEqual([1, 2]);
+  });
