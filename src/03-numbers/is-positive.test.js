@@ -18,3 +18,5 @@ describe("isPositive", () => {
     expect(() => isPositive("1")).toThrow(TypeError);
     expect(() => isPositive(NaN)).toThrow(TypeError);
     expect(() => isPositive(null)).toThrow(TypeError);
+  });
+});
