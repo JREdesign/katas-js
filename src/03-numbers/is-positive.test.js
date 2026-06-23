@@ -14,3 +14,7 @@ describe("isPositive", () => {
     expect(isPositive(-1)).toBe(false);
     expect(isPositive(-10.5)).toBe(false);
   });
+  it("lanza error si el valor no es un número válido", () => {
+    expect(() => isPositive("1")).toThrow(TypeError);
+    expect(() => isPositive(NaN)).toThrow(TypeError);
+    expect(() => isPositive(null)).toThrow(TypeError);
