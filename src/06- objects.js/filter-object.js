@@ -1,1 +1,4 @@
-
+export function filterObject(obj, predicate) {
+  if (obj === null || typeof obj !== "object" || Array.isArray(obj)) {
+    throw new TypeError("filterObject: obj debe ser un objeto simple");
+  }
