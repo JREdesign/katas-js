@@ -13,3 +13,5 @@ export function filterObject(obj, predicate) {
       result[key] = value;
     }
   }
+  return result;
+}
