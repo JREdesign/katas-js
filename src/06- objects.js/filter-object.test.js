@@ -15,3 +15,5 @@ describe("filterObject", () => {
       { name: "Jorge", password: "secret" },
       (_value, key) => key !== "password"
     );
+    expect(result).toEqual({ name: "Jorge" });
+  });
