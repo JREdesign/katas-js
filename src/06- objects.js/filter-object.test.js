@@ -17,3 +17,7 @@ describe("filterObject", () => {
     );
     expect(result).toEqual({ name: "Jorge" });
   });
+  
+  it("devuelve un objeto vacío si ninguna propiedad cumple", () => {
+    expect(filterObject({ a: 1 }, value => value > 10)).toEqual({});
+  });
