@@ -21,3 +21,10 @@ describe("filterObject", () => {
   it("devuelve un objeto vacío si ninguna propiedad cumple", () => {
     expect(filterObject({ a: 1 }, value => value > 10)).toEqual({});
   });
+
+  it("lanza error con argumentos inválidos", () => {
+    expect(() => filterObject(null, () => true)).toThrow(TypeError);
+    expect(() => filterObject([], () => true)).toThrow(TypeError);
+    expect(() => filterObject({}, "no")).toThrow(TypeError);
+  });
+});
