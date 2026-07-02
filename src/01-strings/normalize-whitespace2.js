@@ -4,3 +4,5 @@ export function normalizeWhitespace(input) {
       "normalizeWhitespace: input debe ser un string"
     );
   }
+  return input.trim().replace(/\s+/g, " ");
+}
