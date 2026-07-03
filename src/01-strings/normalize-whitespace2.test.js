@@ -18,3 +18,9 @@ describe("normalizeWhitespace", () => {
   it("devuelve un string vacío si solo contiene espacios", () => {
     expect(normalizeWhitespace("   ")).toBe("");
   });
+
+  it("lanza error si no recibe un string", () => {
+    expect(() => normalizeWhitespace(123)).toThrow(TypeError);
+    expect(() => normalizeWhitespace(null)).toThrow(TypeError);
+  });
+});
