@@ -15,3 +15,6 @@ describe("normalizeWhitespace", () => {
       "hola mundo JavaScript"
     );
   });
+  it("devuelve un string vacío si solo contiene espacios", () => {
+    expect(normalizeWhitespace("   ")).toBe("");
+  });
