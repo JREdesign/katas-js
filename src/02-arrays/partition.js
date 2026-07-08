@@ -7,3 +7,6 @@ export function partition(arr, predicate) {
       "partition: predicate debe ser una función"
     );
   }
+
+  const matches = [];
+  const rest = [];
