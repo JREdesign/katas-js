@@ -10,3 +10,11 @@ export function partition(arr, predicate) {
 
   const matches = [];
   const rest = [];
+
+  for (const item of arr) {
+    if (predicate(item)) {
+      matches.push(item);
+    } else {
+      rest.push(item);
+    }
+  }
