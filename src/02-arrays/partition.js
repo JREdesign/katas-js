@@ -18,3 +18,5 @@ export function partition(arr, predicate) {
       rest.push(item);
     }
   }
+  return [matches, rest];
+}
