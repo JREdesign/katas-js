@@ -8,9 +8,17 @@ describe("partition", () => {
       [1, 3]
     ]);
   });
+  
  it("mantiene el orden original", () => {
     expect(partition([5, 2, 8, 1], number => number > 3)).toEqual([
       [5, 8],
       [2, 1]
+    ]);
+  });
+  
+  it("devuelve un grupo vacío si ningún elemento cumple", () => {
+    expect(partition([1, 2], number => number > 10)).toEqual([
+      [],
+      [1, 2]
     ]);
   });
