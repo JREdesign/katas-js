@@ -26,3 +26,9 @@ describe("partition", () => {
   it("funciona con un array vacío", () => {
     expect(partition([], () => true)).toEqual([[], []]);
   });
+
+  it("lanza error con argumentos inválidos", () => {
+    expect(() => partition("no", () => true)).toThrow(TypeError);
+    expect(() => partition([], "no")).toThrow(TypeError);
+  });
+});
