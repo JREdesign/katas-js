@@ -22,3 +22,7 @@ describe("partition", () => {
       [1, 2]
     ]);
   });
+
+  it("funciona con un array vacío", () => {
+    expect(partition([], () => true)).toEqual([[], []]);
+  });
