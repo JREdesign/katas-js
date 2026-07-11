@@ -14,3 +14,7 @@ function mostrarResultado(numero1, numero2) {
     return resultado;
   } catch (error) {
     console.error(`No se pudo realizar la suma: ${error.message}`);
+  
+    return null;
+  }
+}
