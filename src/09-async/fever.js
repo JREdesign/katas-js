@@ -18,3 +18,7 @@ function mostrarResultado(numero1, numero2) {
     return null;
   }
 }
+
+const primeraSuma = mostrarResultado(5, 3);
+const segundaSuma = mostrarResultado(10, 7);
+const sumaIncorrecta = mostrarResultado("5", 4);
