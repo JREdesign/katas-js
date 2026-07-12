@@ -3,3 +3,16 @@ function obtenerDatos() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const operacionCorrecta = true;
+
+
+      if (operacionCorrecta) {
+        resolve({
+          nombre: "Jorge",
+          edad: 30
+        });
+      } else {
+        reject(new Error("No se pudieron obtener los datos"));
+      }
+    }, 2000);
+  });
+}
