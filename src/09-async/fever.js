@@ -16,3 +16,8 @@ function obtenerDatos() {
     }, 2000);
   });
 }
+
+// Función asíncrona
+async function mostrarDatos() {
+  try {
+    console.log("Cargando datos...");
