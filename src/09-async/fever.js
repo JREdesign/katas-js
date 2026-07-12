@@ -21,3 +21,5 @@ function obtenerDatos() {
 async function mostrarDatos() {
   try {
     console.log("Cargando datos...");
+    // Espera a que la promesa termine
+    const datos = await obtenerDatos();
