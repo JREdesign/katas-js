@@ -1,25 +1,13 @@
-// Simula una operación que tarda 2 segundos
-function obtenerDatos() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const operacionCorrecta = true;
-
-
-      if (operacionCorrecta) {
-        resolve({
-          nombre: "Jorge",
-          edad: 30
-        });
-      } else {
-        reject(new Error("No se pudieron obtener los datos"));
-      }
-    }, 2000);
-  });
+class HttpError extends Error {
+  /**
+   * @param {string} message
+   * @param {number} status
+   * @param {string} url
+   */
+  constructor(message, status, url) {
+    super(message);
+    this.name = "HttpError";
+    this.status = status;
+    this.url = url;
+  }
 }
-
-// Función asíncrona
-async function mostrarDatos() {
-  try {
-    console.log("Cargando datos...");
-    // Espera a que la promesa termine
-    const datos = await obtenerDatos();
