@@ -11,3 +11,29 @@ class HttpError extends Error {
     this.url = url;
   }
 }
+/**
+ * Pausa la ejecución durante una cantidad determinada de milisegundos.
+ *
+ * @param {number} milliseconds
+ * @param {AbortSignal} [signal]
+ * @returns {Promise<void>}
+ */
+function sleep(milliseconds, signal) {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) {
+      reject(signal.reason ?? new Error("Operación cancelada"));
+      return;
+    }
+
+    const timeoutId = setTimeout(resolve, milliseconds);
+
+    signal?.addEventListener(
+      "abort",
+      () => {
+        clearTimeout(timeoutId);
+        reject(signal.reason ?? new Error("Operación cancelada"));
+      },
+      { once: true }
+    );
+  });
+}
