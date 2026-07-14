@@ -4,3 +4,5 @@ export function isNegative(value) {
       "isNegative: value debe ser un number válido"
     );
   }
+  return value < 0;
+}
