@@ -6,3 +6,7 @@ describe("isNegative", () => {
     expect(isNegative(-1)).toBe(true);
     expect(isNegative(-10.5)).toBe(true);
   });
+  it("devuelve false para números positivos", () => {
+    expect(isNegative(1)).toBe(false);
+    expect(isNegative(10.5)).toBe(false);
+  });
