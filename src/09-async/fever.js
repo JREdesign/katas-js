@@ -14,3 +14,12 @@ class HttpError extends Error {
     this.url = url;
   }
 }
+
+/**
+ * Espera una cantidad determinada de milisegundos.
+ * La espera puede cancelarse mediante un AbortSignal.
+ *
+ * @param {number} milliseconds Tiempo de espera en milisegundos.
+ * @param {AbortSignal} [signal] Señal opcional de cancelación.
+ * @returns {Promise<void>}
+ */
