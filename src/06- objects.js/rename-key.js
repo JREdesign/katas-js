@@ -4,3 +4,8 @@ export function renameKey(obj, oldKey, newKey) {
       "renameKey: obj debe ser un objeto simple"
     );
   }
+  if (typeof oldKey !== "string" || typeof newKey !== "string") {
+    throw new TypeError(
+      "renameKey: oldKey y newKey deben ser strings"
+    );
+  }
