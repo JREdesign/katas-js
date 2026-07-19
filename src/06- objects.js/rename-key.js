@@ -14,3 +14,8 @@ export function renameKey(obj, oldKey, newKey) {
   if (!(oldKey in result) || oldKey === newKey) {
     return result;
   }
+  result[newKey] = result[oldKey];
+  delete result[oldKey];
+
+  return result;
+}
