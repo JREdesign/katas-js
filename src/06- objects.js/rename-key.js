@@ -9,3 +9,8 @@ export function renameKey(obj, oldKey, newKey) {
       "renameKey: oldKey y newKey deben ser strings"
     );
   }
+  const result = { ...obj };
+
+  if (!(oldKey in result) || oldKey === newKey) {
+    return result;
+  }
