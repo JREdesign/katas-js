@@ -20,3 +20,11 @@ describe("renameKey", () => {
   it("no cambia nada si las claves son iguales", () => {
     expect(renameKey({ a: 1 }, "a", "a")).toEqual({ a: 1 });
   });
+
+  it("no modifica el objeto original", () => {
+    const original = { a: 1 };
+
+    renameKey(original, "a", "b");
+
+    expect(original).toEqual({ a: 1 });
+  });
