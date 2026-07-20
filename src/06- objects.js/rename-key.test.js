@@ -16,3 +16,7 @@ describe("renameKey", () => {
     expect(result).toEqual({ a: 1 });
     expect(result).not.toBe(original);
   });
+  
+  it("no cambia nada si las claves son iguales", () => {
+    expect(renameKey({ a: 1 }, "a", "a")).toEqual({ a: 1 });
+  });
