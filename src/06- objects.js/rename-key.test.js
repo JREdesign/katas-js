@@ -28,3 +28,10 @@ describe("renameKey", () => {
 
     expect(original).toEqual({ a: 1 });
   });
+
+  it("lanza error con argumentos inválidos", () => {
+    expect(() => renameKey(null, "a", "b")).toThrow(TypeError);
+    expect(() => renameKey([], "a", "b")).toThrow(TypeError);
+    expect(() => renameKey({}, 1, "b")).toThrow(TypeError);
+  });
+});
