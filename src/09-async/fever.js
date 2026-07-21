@@ -47,3 +47,12 @@ function sleep(milliseconds, signal) {
     signal?.addEventListener("abort", handleAbort, { once: true });
   });
 }
+
+class HttpError extends Error {
+  /**
+   * Crea un error relacionado con una petición HTTP.
+   *
+   * @param {string} message Mensaje descriptivo del error.
+   * @param {number} status Código de estado HTTP.
+   * @param {string} url URL en la que ocurrió el error.
+   */
