@@ -48,11 +48,8 @@ function sleep(milliseconds, signal) {
   });
 }
 
-class HttpError extends Error {
-  /**
-   * Crea un error relacionado con una petición HTTP.
-   *
-   * @param {string} message Mensaje descriptivo del error.
-   * @param {number} status Código de estado HTTP.
-   * @param {string} url URL en la que ocurrió el error.
-   */
+
+function sleep(milliseconds, signal) {
+  return new Promise((resolve, reject) => {
+    const cancellationError = () =>
+      signal?.reason ?? new Error("Operación cancelada");
