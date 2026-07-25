@@ -52,15 +52,4 @@ function sleep(milliseconds, signal) {
       return;
     }
 
-function sleep(milliseconds, signal) {
-  return new Promise((resolve, reject) => {
-    const cancellationError = () =>
-      signal?.reason ?? new Error("Operación cancelada");
 
-    if (signal?.aborted) {
-      reject(cancellationError());
-      return;
-    }
-    };
-  });
-}
