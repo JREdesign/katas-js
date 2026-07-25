@@ -66,12 +66,5 @@ function sleep(milliseconds, signal) {
       clearTimeout(timeoutId);
       reject(cancellationError());
     };
-
-    const timeoutId = setTimeout(() => {
-      signal?.removeEventListener("abort", handleAbort);
-      resolve();
-    }, milliseconds);
-
-    signal?.addEventListener("abort", handleAbort, { once: true });
   });
 }
