@@ -9,3 +9,28 @@
 <body>
 <script>
 t=0
+draw=_=>{
+  t||createCanvas(W=400,W)
+
+  background(4,12,20)
+  stroke(90,255,185,70)
+
+  for(t+=.018,i=14000;i--;){
+    f=i%11
+    n=(i/11|0)%1200
+    s=n/1200
+    h=310*s
+    b=(f-5)*22+200
+
+    c=sin(t*1.4+f*.7)*18*s
+      +sin(t*2+n/45+f)*10*s*s
+      +sin(t*.7+n/90)*8
+
+    x=b+c+sin(n/13+t*3+f)*4*(1-s)
+    y=390-h+cos(n/23-t*2+f)*3
+
+    r=7+15*sin(PI*s)
+    x+=sin(i*2.4+sin(n/20+t))*r
+
+    point(x,y)
+  }
