@@ -8,3 +8,6 @@ describe("getInitials", () => {
   it("convierte las iniciales a mayúsculas", () => {
     expect(getInitials("ana maría lópez")).toBe("AML");
   });
+  it("ignora espacios adicionales", () => {
+    expect(getInitials("  Juan   Carlos  Pérez  ")).toBe("JCP");
+  });
