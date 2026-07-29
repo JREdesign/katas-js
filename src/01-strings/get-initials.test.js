@@ -11,3 +11,8 @@ describe("getInitials", () => {
   it("ignora espacios adicionales", () => {
     expect(getInitials("  Juan   Carlos  Pérez  ")).toBe("JCP");
   });
+
+  it("devuelve un string vacío si no hay palabras", () => {
+    expect(getInitials("")).toBe("");
+    expect(getInitials("   ")).toBe("");
+  });
