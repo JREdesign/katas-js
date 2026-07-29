@@ -16,3 +16,9 @@ describe("getInitials", () => {
     expect(getInitials("")).toBe("");
     expect(getInitials("   ")).toBe("");
   });
+
+  it("lanza error si no recibe un string", () => {
+    expect(() => getInitials(123)).toThrow(TypeError);
+    expect(() => getInitials(null)).toThrow(TypeError);
+  });
+});
