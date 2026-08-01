@@ -12,13 +12,3 @@ function sleep(milliseconds, signal) {
     const cancellationError = () =>
       signal?.reason ?? new Error("Operación cancelada");
 
-    if (signal?.aborted) {
-      reject(cancellationError());
-      return;
-    }
-
-    const handleAbort = () => {
-      clearTimeout(timeoutId);
-      reject(cancellationError());
-    };
-
