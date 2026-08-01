@@ -22,12 +22,3 @@ function sleep(milliseconds, signal) {
       reject(cancellationError());
     };
 
-    const timeoutId = setTimeout(() => {
-      signal?.removeEventListener("abort", handleAbort);
-      resolve();
-    }, milliseconds);
-
-    signal?.addEventListener("abort", handleAbort, { once: true });
-  });
-}
-
