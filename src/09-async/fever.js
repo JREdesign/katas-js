@@ -7,8 +7,3 @@ class HttpError extends Error {
     this.url = url;
   }
 }
-function sleep(milliseconds, signal) {
-  return new Promise((resolve, reject) => {
-    const cancellationError = () =>
-      signal?.reason ?? new Error("Operación cancelada");
-
