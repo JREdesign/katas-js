@@ -36,28 +36,4 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
       finalizada = true;
       clearTimeout(temporizadorId);
 
-      if (signal) {
-        signal.removeEventListener("abort", cancelarOperacion);
-      }
 
-      reject(crearErrorDeCancelacion());
-    }
-
-                         if (signal) {
-      signal.addEventListener("abort", cancelarOperacion, {
-        once: true,
-      });
-    }
-  });
-}
-
-* Crea un error compatible con operaciones cancelables.
- *
- * @returns {Error}
- */
-function crearErrorDeCancelacion() {
-  const error = new Error("La operación fue cancelada.");
-  error.name = "AbortError";
-
-  return error;
-}
