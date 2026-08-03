@@ -11,3 +11,6 @@ function operacionAsincrona() {
     }, 1000);
   });
 }
+async function operacionAsincrona() {
+  return "Resultado correcto";
+}
