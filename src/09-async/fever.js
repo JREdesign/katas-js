@@ -13,3 +13,15 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
       reject(crearErrorDeCancelacion());
       return;
     }
+    let finalizada = false;
+
+    const temporizadorId = setTimeout(() => {
+      if (finalizada) {
+        return;
+      }
+
+      finalizada = true;
+
+      if (signal) {
+        signal.removeEventListener("abort", cancelarOperacion);
+      }
