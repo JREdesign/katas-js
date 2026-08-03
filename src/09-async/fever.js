@@ -20,20 +20,4 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
         return;
       }
 
-      finalizada = true;
-
-      if (signal) {
-        signal.removeEventListener("abort", cancelarOperacion);
-      }
-      resolve(`Operación completada después de ${delayMs} milisegundos.`);
-    }, delayMs);
-
-    function cancelarOperacion() {
-      if (finalizada) {
-        return;
-      }
-
-      finalizada = true;
-      clearTimeout(temporizadorId);
-
 
