@@ -62,11 +62,6 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
   });
 }
 
-/**
- * Crea un error compatible con operaciones cancelables.
- *
- * @returns {Error}
- */
 function crearErrorDeCancelacion() {
   const error = new Error("La operación fue cancelada.");
   error.name = "AbortError";
@@ -74,37 +69,8 @@ function crearErrorDeCancelacion() {
   return error;
 }
 
-/**
- * Función principal de demostración.
- *
- * No está declarada con `async`: utiliza la cadena de Promises
- * directamente mediante `.then()`, `.catch()` y `.finally()`.
- */
+
 function main() {
   const controlador = new AbortController();
 
-  ejecutarOperacionAsincrona(2_000, controlador.signal)
-    .then((resultado) => {
-      console.log(resultado);
-      return "La cadena de Promises puede continuar.";
-    })
-    .then((mensaje) => {
-      console.log(mensaje);
-    })
-    .catch((error) => {
-      if (error.name === "AbortError") {
-        console.log("Operación cancelada correctamente.");
-        return;
-      }
 
-      console.error("Error durante la operación:", error);
-    })
-    .finally(() => {
-      console.log("La operación asíncrona ha terminado.");
-    });
-
-  // Descomenta esta línea para cancelar la operación tras 500 ms:
-  // setTimeout(() => controlador.abort(), 500);
-}
-
-main();
