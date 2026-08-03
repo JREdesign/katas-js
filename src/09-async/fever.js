@@ -1,9 +1,15 @@
-class HttpError extends Error {
-  constructor(message, status, url) {
-    super(message);
+function ejecutarOperacionAsincrona(delayMs, signal) {
+  return new Promise((resolve, reject) => {
+    if (!Number.isFinite(delayMs) || delayMs < 0) {
+      reject(
+        new TypeError(
+          "delayMs debe ser un número finito mayor o igual que cero."
+        )
+      );
+      return;
+    }
 
-    this.name = "HttpError";
-    this.status = status;
-    this.url = url;
-  }
-}
+    if (signal?.aborted) {
+      reject(crearErrorDeCancelacion());
+      return;
+    }
