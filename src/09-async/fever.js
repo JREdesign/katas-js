@@ -42,3 +42,22 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
 
       reject(crearErrorDeCancelacion());
     }
+
+                         if (signal) {
+      signal.addEventListener("abort", cancelarOperacion, {
+        once: true,
+      });
+    }
+  });
+}
+
+* Crea un error compatible con operaciones cancelables.
+ *
+ * @returns {Error}
+ */
+function crearErrorDeCancelacion() {
+  const error = new Error("La operación fue cancelada.");
+  error.name = "AbortError";
+
+  return error;
+}
