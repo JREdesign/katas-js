@@ -1,12 +1,3 @@
-// async-low-level.js
-
-/**
- * Ejecuta una operación asíncrona utilizando Promise directamente.
- *
- * @param {number} delayMs Tiempo de espera en milisegundos.
- * @param {AbortSignal} [signal] Señal opcional para cancelar la operación.
- * @returns {Promise<string>}
- */
 function ejecutarOperacionAsincrona(delayMs, signal) {
   return new Promise((resolve, reject) => {
     if (!Number.isFinite(delayMs) || delayMs < 0) {
