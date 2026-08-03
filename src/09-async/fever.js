@@ -53,15 +53,4 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
   });
 }
 
-function crearErrorDeCancelacion() {
-  const error = new Error("La operación fue cancelada.");
-  error.name = "AbortError";
-
-  return error;
-}
-
-
-function main() {
-  const controlador = new AbortController();
-
 
