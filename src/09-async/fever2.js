@@ -1,14 +1,12 @@
-async function obtenerMensaje() {
-  return "Hola desde una función async";
+function esperar(milisegundos) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, milisegundos);
+  });
 }
 
-async function ejecutar() {
-  try {
-    const mensaje = await obtenerMensaje();
-    console.log(mensaje);
-  } catch (error) {
-    console.error("Ocurrió un error:", error);
-  }
-}
-
-ejecutar();
+async function obtenerMensaje(nombre, opciones = {}) {
+  const {
+    tiempoEspera = 1000,
+    reintentos = 3,
+    mayusculas = false,
+  } = opciones;
