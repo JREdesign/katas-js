@@ -53,16 +53,5 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
   });
 }
 
-function main() {
-  const controlador = new AbortController();
-
-  ejecutarOperacionAsincrona(2_000, controlador.signal)
-    .then((resultado) => {
-      console.log(resultado);
-      return "La cadena de Promises puede continuar.";
-    })
-    .then((mensaje) => {
-      console.log(mensaje);
-    })
 
 
