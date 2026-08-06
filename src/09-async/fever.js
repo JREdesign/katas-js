@@ -41,13 +41,6 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
       if (signal) {
         signal.removeEventListener("abort", cancelarOperacion);
       }
-
-      reject(crearErrorDeCancelacion());
-    }
-
-    if (signal) {
-      signal.addEventListener("abort", cancelarOperacion, {
-        once: true,
       });
     }
   });
