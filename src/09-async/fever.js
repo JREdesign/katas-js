@@ -41,6 +41,17 @@ function ejecutarOperacionAsincrona(delayMs, signal) {
       if (signal) {
         signal.removeEventListener("abort", cancelarOperacion);
       }
+          .catch((error) => {
+      if (error.name === "AbortError") {
+        console.log("Operación cancelada correctamente.");
+        return;
+      }
+
+      console.error("Error durante la operación:", error);
+    })
+    .finally(() => {
+      console.log("La operación asíncrona ha terminado.");
+    });
       });
     }
   });
