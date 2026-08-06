@@ -64,15 +64,5 @@ function main() {
     .then((mensaje) => {
       console.log(mensaje);
     })
-    .catch((error) => {
-      if (error.name === "AbortError") {
-        console.log("Operación cancelada correctamente.");
-        return;
-      }
 
-      console.error("Error durante la operación:", error);
-    })
-    .finally(() => {
-      console.log("La operación asíncrona ha terminado.");
-    });
 
