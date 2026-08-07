@@ -3,13 +3,8 @@ export function countOccurrences(arr, target) {
     throw new TypeError("countOccurrences: arr debe ser un array");
   }
 
-  let count = 0;
-
-  for (const item of arr) {
-    if (Object.is(item, target)) {
-      count += 1;
-    }
-  }
-
-  return count;
+  return arr.reduce(
+    (count, item) => count + Number(Object.is(item, target)),
+    0
+  );
 }
