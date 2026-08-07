@@ -2,6 +2,7 @@ export function countOccurrences(arr, target) {
   if (!Array.isArray(arr)) {
     throw new TypeError("countOccurrences: arr debe ser un array");
   }
+
   let count = 0;
 
   for (const item of arr) {
@@ -9,3 +10,6 @@ export function countOccurrences(arr, target) {
       count += 1;
     }
   }
+
+  return count;
+}
