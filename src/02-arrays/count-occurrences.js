@@ -8,3 +8,7 @@ export function countOccurrences(arr, target) {
     if (Object.is(item, target)) {
       count += 1;
     }
+  }
+
+  return count;
+}
