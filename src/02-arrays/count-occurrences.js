@@ -9,6 +9,3 @@ export function countOccurrences(arr, target) {
       count += 1;
     }
   }
-
-  return count;
-}
