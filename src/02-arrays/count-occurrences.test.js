@@ -11,3 +11,6 @@ describe("countOccurrences", () => {
   it("puede contar valores NaN", () => {
     expect(countOccurrences([NaN, 1, NaN], NaN)).toBe(2);
   });
+  it("devuelve 0 si el valor no aparece", () => {
+    expect(countOccurrences([1, 2, 3], 10)).toBe(0);
+  });
