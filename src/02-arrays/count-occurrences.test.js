@@ -14,3 +14,6 @@ describe("countOccurrences", () => {
   it("devuelve 0 si el valor no aparece", () => {
     expect(countOccurrences([1, 2, 3], 10)).toBe(0);
   });
+  it("devuelve 0 para un array vacío", () => {
+    expect(countOccurrences([], "a")).toBe(0);
+  });
