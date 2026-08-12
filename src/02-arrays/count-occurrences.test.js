@@ -17,3 +17,8 @@ describe("countOccurrences", () => {
   it("devuelve 0 para un array vacío", () => {
     expect(countOccurrences([], "a")).toBe(0);
   });
+  it("lanza error si no recibe un array", () => {
+    expect(() => countOccurrences("no", "o")).toThrow(TypeError);
+    expect(() => countOccurrences(null, 1)).toThrow(TypeError);
+  });
+});
