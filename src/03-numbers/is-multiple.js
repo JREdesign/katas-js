@@ -9,3 +9,5 @@ export function isMultiple(value, divisor) {
       "isMultiple: divisor no puede ser 0"
     );
   }
+  return value % divisor === 0;
+}
