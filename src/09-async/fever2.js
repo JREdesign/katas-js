@@ -17,3 +17,11 @@ async function obtenerMensaje(nombre, opciones = {}) {
     reintentos = 3,
     mayusculas = false,
   } = opciones;
+
+  
+function esperar(milisegundos) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, milisegundos);
+  });
+}
+  
