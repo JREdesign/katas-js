@@ -10,3 +10,10 @@ async function obtenerMensaje(nombre, opciones = {}) {
     reintentos = 3,
     mayusculas = false,
   } = opciones;
+
+async function obtenerMensaje(nombre, opciones = {}) {
+  const {
+    tiempoEspera = 1000,
+    reintentos = 3,
+    mayusculas = false,
+  } = opciones;
