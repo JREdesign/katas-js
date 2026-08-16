@@ -11,3 +11,8 @@ describe("isMultiple", () => {
     expect(isMultiple(10, 3)).toBe(false);
     expect(isMultiple(7, 2)).toBe(false);
   });
+
+           it("funciona con números negativos", () => {
+    expect(isMultiple(-10, 5)).toBe(true);
+    expect(isMultiple(10, -5)).toBe(true);
+  });
