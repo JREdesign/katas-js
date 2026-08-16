@@ -21,3 +21,7 @@ describe("isMultiple", () => {
   it("considera que cero es múltiplo de un divisor válido", () => {
     expect(isMultiple(0, 5)).toBe(true);
   });
+
+  it("lanza error si el divisor es 0", () => {
+    expect(() => isMultiple(10, 0)).toThrow(RangeError);
+  });
