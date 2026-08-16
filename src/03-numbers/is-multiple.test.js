@@ -12,7 +12,12 @@ describe("isMultiple", () => {
     expect(isMultiple(7, 2)).toBe(false);
   });
 
-           it("funciona con números negativos", () => {
+  it("funciona con números negativos", () => {
     expect(isMultiple(-10, 5)).toBe(true);
     expect(isMultiple(10, -5)).toBe(true);
+  });
+
+         
+  it("considera que cero es múltiplo de un divisor válido", () => {
+    expect(isMultiple(0, 5)).toBe(true);
   });
