@@ -25,3 +25,9 @@ describe("isMultiple", () => {
   it("lanza error si el divisor es 0", () => {
     expect(() => isMultiple(10, 0)).toThrow(RangeError);
   });
+
+ it("lanza error si los argumentos no son enteros", () => {
+    expect(() => isMultiple(10.5, 5)).toThrow(TypeError);
+    expect(() => isMultiple(10, "5")).toThrow(TypeError);
+  });
+});
