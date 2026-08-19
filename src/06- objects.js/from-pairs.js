@@ -4,3 +4,10 @@ export function fromPairs(pairs) {
   }
 
   const result = {};
+
+  for (const pair of pairs) {
+    if (!Array.isArray(pair) || pair.length !== 2) {
+      throw new TypeError(
+        "fromPairs: cada elemento debe ser un array de dos posiciones"
+      );
+    }
