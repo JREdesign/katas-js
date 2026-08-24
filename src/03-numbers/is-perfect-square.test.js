@@ -16,4 +16,16 @@ describe("isPerfectSquare", () => {
     expect(isPerfectSquare(8)).toBe(false);
     expect(isPerfectSquare(15)).toBe(false);
   });
+
+  it("devuelve false para enteros negativos", () => {
+    expect(isPerfectSquare(-1)).toBe(false);
+    expect(isPerfectSquare(-4)).toBe(false);
+    expect(isPerfectSquare(-25)).toBe(false);
+  });
+
+  it("lanza TypeError si recibe un valor que no es un entero", () => {
+    expect(() => isPerfectSquare(2.5)).toThrow(TypeError);
+    expect(() => isPerfectSquare("9")).toThrow(TypeError);
+    expect(() => isPerfectSquare(null)).toThrow(TypeError);
+  });
 });
