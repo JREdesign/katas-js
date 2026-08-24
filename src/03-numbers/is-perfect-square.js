@@ -1,6 +1,6 @@
 export function isPerfectSquare(n) {
-  if (!Number.isInteger(n)) {
-    throw new TypeError("isPerfectSquare: n debe ser un entero");
+  if (!Number.isSafeInteger(n)) {
+    throw new TypeError("isPerfectSquare: n debe ser un entero seguro");
   }
 
   if (n < 0) return false;
