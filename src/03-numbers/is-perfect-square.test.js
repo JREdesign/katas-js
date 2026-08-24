@@ -23,9 +23,16 @@ describe("isPerfectSquare", () => {
     expect(isPerfectSquare(-25)).toBe(false);
   });
 
-  it("lanza TypeError si recibe un valor que no es un entero", () => {
+  it("maneja cuadrados perfectos grandes dentro del rango seguro", () => {
+    expect(isPerfectSquare(9_000_000_000_000_000)).toBe(true);
+    expect(isPerfectSquare(9_000_000_000_000_001)).toBe(false);
+  });
+
+  it("lanza TypeError si recibe un valor que no es un entero seguro", () => {
     expect(() => isPerfectSquare(2.5)).toThrow(TypeError);
     expect(() => isPerfectSquare("9")).toThrow(TypeError);
     expect(() => isPerfectSquare(null)).toThrow(TypeError);
+    expect(() => isPerfectSquare(Number.MAX_SAFE_INTEGER + 1)).toThrow(TypeError);
+    expect(() => isPerfectSquare(Infinity)).toThrow(TypeError);
   });
 });
