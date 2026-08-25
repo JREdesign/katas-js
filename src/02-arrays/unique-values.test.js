@@ -18,6 +18,13 @@ describe("uniqueValues", () => {
     expect(uniqueValues([0, -0, 0, -0])).toEqual([0, -0]);
   });
 
+  it("mantiene referencias de objetos distintas", () => {
+    const first = { id: 1 };
+    const second = { id: 1 };
+
+    expect(uniqueValues([first, first, second])).toEqual([first, second]);
+  });
+
   it("devuelve un array vacío si recibe uno vacío", () => {
     expect(uniqueValues([])).toEqual([]);
   });
@@ -25,5 +32,6 @@ describe("uniqueValues", () => {
   it("lanza error si no recibe un array", () => {
     expect(() => uniqueValues("abc")).toThrow(TypeError);
     expect(() => uniqueValues(null)).toThrow(TypeError);
+    expect(() => uniqueValues(undefined)).toThrow(TypeError);
   });
 });
