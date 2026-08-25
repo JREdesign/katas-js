@@ -25,6 +25,10 @@ describe("uniqueValues", () => {
     expect(uniqueValues([first, first, second])).toEqual([first, second]);
   });
 
+  it("mantiene valores booleanos únicos", () => {
+    expect(uniqueValues([true, false, true, false])).toEqual([true, false]);
+  });
+
   it("devuelve un array vacío si recibe uno vacío", () => {
     expect(uniqueValues([])).toEqual([]);
   });
