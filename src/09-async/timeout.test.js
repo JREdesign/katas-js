@@ -6,6 +6,12 @@ describe("withTimeout", () => {
     await expect(withTimeout(Promise.resolve("ok"), 50)).resolves.toBe("ok");
   });
 
+  it("propaga el rechazo original de la promesa", async () => {
+    const error = new Error("fallo original");
+
+    await expect(withTimeout(Promise.reject(error), 50)).rejects.toBe(error);
+  });
+
   it("rechaza cuando se supera el tiempo límite", async () => {
     const slowPromise = new Promise((resolve) => {
       setTimeout(() => resolve("tarde"), 50);
