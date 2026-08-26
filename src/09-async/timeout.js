@@ -6,9 +6,18 @@ export async function withTimeout(promise, ms) {
     throw new TypeError("withTimeout: ms debe ser un número >= 0");
   }
 
+  let timeoutId;
+
   const timeout = new Promise((_, reject) => {
-    setTimeout(() => reject(new Error("Tiempo de espera agotado")), ms);
+    timeoutId = setTimeout(
+      () => reject(new Error("Tiempo de espera agotado")),
+      ms,
+    );
   });
 
-  return Promise.race([promise, timeout]);
+  try {
+    return await Promise.race([promise, timeout]);
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
