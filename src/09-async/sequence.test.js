@@ -17,6 +17,17 @@ describe("runInSequence", () => {
     expect(calls).toEqual(["first", "second"]);
   });
 
+  it("detiene la secuencia si una tarea falla", async () => {
+    const first = vi.fn().mockResolvedValue("ok");
+    const second = vi.fn().mockRejectedValue(new Error("boom"));
+    const third = vi.fn().mockResolvedValue("no debería ejecutarse");
+
+    await expect(runInSequence([first, second, third])).rejects.toThrow("boom");
+    expect(first).toHaveBeenCalledTimes(1);
+    expect(second).toHaveBeenCalledTimes(1);
+    expect(third).not.toHaveBeenCalled();
+  });
+
   it("devuelve un array vacío si no hay tareas", async () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
