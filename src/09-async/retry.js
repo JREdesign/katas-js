@@ -6,13 +6,13 @@ export async function retry(fn, attempts) {
     throw new TypeError("retry: attempts debe ser entero > 0");
   }
 
-  let lastError;
+  let lastError = null;
 
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       return await fn();
-    } catch (err) {
-      lastError = err;
+    } catch (error) {
+      lastError = error;
     }
   }
 
