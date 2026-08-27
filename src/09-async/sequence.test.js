@@ -28,6 +28,13 @@ describe("runInSequence", () => {
     expect(third).not.toHaveBeenCalled();
   });
 
+  it("acepta tareas síncronas además de asíncronas", async () => {
+    const first = () => "a";
+    const second = async () => "b";
+
+    await expect(runInSequence([first, second])).resolves.toEqual(["a", "b"]);
+  });
+
   it("devuelve un array vacío si no hay tareas", async () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
