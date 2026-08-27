@@ -5,9 +5,9 @@ export async function runInSequence(tasks) {
 
   const results = [];
 
-  for (const task of tasks) {
+  for (const [index, task] of tasks.entries()) {
     if (typeof task !== "function") {
-      throw new TypeError("runInSequence: cada tarea debe ser función");
+      throw new TypeError(`runInSequence: la tarea en posición ${index} debe ser función`);
     }
 
     results.push(await task());
