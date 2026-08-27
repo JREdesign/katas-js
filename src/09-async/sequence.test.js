@@ -39,8 +39,13 @@ describe("runInSequence", () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
 
-  it("valida la entrada", async () => {
+  it("indica la posición de una tarea inválida", async () => {
+    await expect(runInSequence([async () => 1, 2])).rejects.toThrow(
+      "la tarea en posición 1 debe ser función",
+    );
+  });
+
+  it("valida que tasks sea un array", async () => {
     await expect(runInSequence("no")).rejects.toThrow(TypeError);
-    await expect(runInSequence([async () => 1, 2])).rejects.toThrow(TypeError);
   });
 });
