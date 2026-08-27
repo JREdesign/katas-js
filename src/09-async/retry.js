@@ -8,7 +8,7 @@ export async function retry(fn, attempts) {
 
   let lastError;
 
-  for (let i = 0; i < attempts; i++) {
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       return await fn();
     } catch (err) {
