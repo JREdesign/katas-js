@@ -22,13 +22,20 @@ describe("retry", () => {
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
-  it("lanza error si todos fallan", async () => {
-    const fn = vi.fn().mockRejectedValue(new Error("fail"));
-    await expect(retry(fn, 2)).rejects.toThrow("fail");
+  it("lanza el último error cuando todos los intentos fallan", async () => {
+    const firstError = new Error("primer fallo");
+    const lastError = new Error("último fallo");
+    const fn = vi
+      .fn()
+      .mockRejectedValueOnce(firstError)
+      .mockRejectedValueOnce(lastError);
+
+    await expect(retry(fn, 2)).rejects.toBe(lastError);
+    expect(fn).toHaveBeenCalledTimes(2);
   });
 
   it("errores de parámetros", () => {
-    expect(() => retry(1, 2)).toThrow();
-    expect(() => retry(() => {}, 0)).toThrow();
+    expect(() => retry(1, 2)).toThrow(TypeError);
+    expect(() => retry(() => {}, 0)).toThrow(TypeError);
   });
 });
