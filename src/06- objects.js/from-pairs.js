@@ -11,3 +11,11 @@ export function fromPairs(pairs) {
         "fromPairs: cada elemento debe ser un array de dos posiciones"
       );
     }
+
+    const [key, value] = pair;
+
+    if (typeof key !== "string") {
+      throw new TypeError(
+        "fromPairs: cada clave debe ser un string"
+      );
+    }
