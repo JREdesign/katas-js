@@ -19,3 +19,9 @@ export function fromPairs(pairs) {
         "fromPairs: cada clave debe ser un string"
       );
     }
+
+      result[key] = value;
+  }
+
+  return result;
+}
