@@ -17,3 +17,14 @@ describe("fromPairs", () => {
   it("devuelve un objeto vacío si no hay pares", () => {
     expect(fromPairs([])).toEqual({});
   });
+
+  it("la última pareja prevalece si una clave se repite", () => {
+    expect(
+      fromPairs([
+        ["role", "user"],
+        ["role", "admin"]
+      ])
+    ).toEqual({
+      role: "admin"
+    });
+  });
