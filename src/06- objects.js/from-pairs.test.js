@@ -28,3 +28,15 @@ describe("fromPairs", () => {
       role: "admin"
     });
   });
+
+  it("permite valores de distintos tipos", () => {
+    expect(
+      fromPairs([
+        ["active", true],
+        ["items", [1, 2]]
+      ])
+    ).toEqual({
+      active: true,
+      items: [1, 2]
+    });
+  });
