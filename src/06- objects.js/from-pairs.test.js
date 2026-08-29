@@ -13,3 +13,7 @@ describe("fromPairs", () => {
       age: 30
     });
   });
+
+  it("devuelve un objeto vacío si no hay pares", () => {
+    expect(fromPairs([])).toEqual({});
+  });
