@@ -40,3 +40,17 @@ describe("fromPairs", () => {
       items: [1, 2]
     });
   });
+
+    it("lanza error si un elemento no es una pareja válida", () => {
+    expect(() => fromPairs([["a"]])).toThrow(TypeError);
+    expect(() => fromPairs(["a"])).toThrow(TypeError);
+  });
+
+  it("lanza error si una clave no es un string", () => {
+    expect(() => fromPairs([[1, "value"]])).toThrow(TypeError);
+  });
+
+  it("lanza error si no recibe un array", () => {
+    expect(() => fromPairs(null)).toThrow(TypeError);
+  });
+});
