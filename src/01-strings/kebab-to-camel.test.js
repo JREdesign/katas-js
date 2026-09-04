@@ -18,3 +18,9 @@ describe("kebabToCamel", () => {
     it("devuelve vacío para un string vacío", () => {
     expect(kebabToCamel("")).toBe("");
   });
+
+    it("lanza error si no recibe un string", () => {
+    expect(() => kebabToCamel(123)).toThrow(TypeError);
+    expect(() => kebabToCamel(null)).toThrow(TypeError);
+  });
+});
