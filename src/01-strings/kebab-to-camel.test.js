@@ -6,3 +6,7 @@ describe("kebabToCamel", () => {
     expect(kebabToCamel("hello-world")).toBe("helloWorld");
     expect(kebabToCamel("background-color")).toBe("backgroundColor");
   });
+
+  it("convierte varias palabras", () => {
+    expect(kebabToCamel("user-profile-image")).toBe("userProfileImage");
+  });    
