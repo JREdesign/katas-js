@@ -10,3 +10,7 @@ describe("kebabToCamel", () => {
   it("convierte varias palabras", () => {
     expect(kebabToCamel("user-profile-image")).toBe("userProfileImage");
   });    
+
+    it("mantiene strings sin guiones", () => {
+    expect(kebabToCamel("hello")).toBe("hello");
+  });
