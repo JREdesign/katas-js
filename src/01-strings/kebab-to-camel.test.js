@@ -23,4 +23,5 @@ describe("kebabToCamel", () => {
     expect(() => kebabToCamel(123)).toThrow(TypeError);
     expect(() => kebabToCamel(null)).toThrow(TypeError);
   });
+  
 });
