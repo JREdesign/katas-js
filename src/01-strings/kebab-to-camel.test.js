@@ -14,3 +14,7 @@ describe("kebabToCamel", () => {
     it("mantiene strings sin guiones", () => {
     expect(kebabToCamel("hello")).toBe("hello");
   });
+
+    it("devuelve vacío para un string vacío", () => {
+    expect(kebabToCamel("")).toBe("");
+  });
