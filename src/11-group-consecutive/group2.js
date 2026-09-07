@@ -16,3 +16,7 @@ export function groupConsecutive(numbers) {
   }
 
   const groups = [[numbers[0]]];
+
+ for (let i = 1; i < numbers.length; i++) {
+    const current = numbers[i];
+    const previous = numbers[i - 1];
