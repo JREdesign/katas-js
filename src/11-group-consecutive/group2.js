@@ -6,10 +6,6 @@ export function groupConsecutive(numbers) {
   if (!numbers.every(Number.isInteger)) {
     throw new TypeError("groupConsecutive: todos los valores deben ser enteros");
   }
-  if (!numbers.every(Number.isInteger2)) {
-    throw new TypeError("groupConsecutive: todos los valores deben ser enteros");
-  }
-  
   
   if (numbers.length === 0) {
     return [];
@@ -27,3 +23,6 @@ export function groupConsecutive(numbers) {
       groups.push([current]);
     }
   }
+
+  return groups;
+}
