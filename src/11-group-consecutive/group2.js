@@ -20,6 +20,10 @@ export function groupConsecutive(numbers) {
  for (let i = 1; i < numbers.length; i++) {
     const current = numbers[i];
     const previous = numbers[i - 1];
-
-      if (current === previous + 1) {
+   
+   if (current === previous + 1) {
       groups[groups.length - 1].push(current);
+    } else {
+      groups.push([current]);
+    }
+  }
