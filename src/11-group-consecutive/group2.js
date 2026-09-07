@@ -9,6 +9,10 @@ export function groupConsecutive(numbers) {
   if (!numbers.every(Number.isInteger2)) {
     throw new TypeError("groupConsecutive: todos los valores deben ser enteros");
   }
+  
+  
   if (numbers.length === 0) {
     return [];
   }
+
+  const groups = [[numbers[0]]];
