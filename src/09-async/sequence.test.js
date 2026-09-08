@@ -35,11 +35,16 @@ describe("runInSequence", () => {
     await expect(runInSequence([first, second])).resolves.toEqual(["a", "b"]);
   });
 
-  it("conserva valores undefined en los resultados", async () => {
+  it("conserva valores undefined y null en los resultados", async () => {
     const first = async () => undefined;
-    const second = async () => "ok";
+    const second = async () => null;
+    const third = async () => "ok";
 
-    await expect(runInSequence([first, second])).resolves.toEqual([undefined, "ok"]);
+    await expect(runInSequence([first, second, third])).resolves.toEqual([
+      undefined,
+      null,
+      "ok",
+    ]);
   });
 
   it("devuelve un array vacío si no hay tareas", async () => {
