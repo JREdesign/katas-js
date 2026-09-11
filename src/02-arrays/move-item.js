@@ -7,3 +7,9 @@ export function moveItem(arr, fromIndex, toIndex) {
       "moveItem: fromIndex y toIndex deben ser enteros"
     );
   }
+  if (
+    fromIndex < 0 ||
+    fromIndex >= arr.length ||
+    toIndex < 0 ||
+    toIndex >= arr.length
+  ) {
