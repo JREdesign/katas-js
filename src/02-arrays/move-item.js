@@ -13,3 +13,5 @@ export function moveItem(arr, fromIndex, toIndex) {
     toIndex < 0 ||
     toIndex >= arr.length
   ) {
+    throw new RangeError("moveItem: índice fuera de rango");
+  }
