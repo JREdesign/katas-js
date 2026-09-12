@@ -1,2 +1,74 @@
-a=(y,d=mag(k=(4+cos(y))*cos(i/7),e=y/5-11)-6)=>point((79+k*k)*sin(c=d/4-t/4+i%6*9)+200,119*sin(c/2)+200+d**3/9*sin(t*3-d/.7)+3*sin(k*2)+y/23*k*(e+sin(e*4-d*4)))
-t=0,draw=$=>{t||createCanvas(w=400,w);background(9).stroke(w,96);for(t+=PI/90,i=2e4;i--;)a(i/798)}/
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generative Art - p5.js</title>
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+
+  <style>
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #090909;
+    }
+
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      width: min(90vmin, 800px) !important;
+      height: min(90vmin, 800px) !important;
+      image-rendering: auto;
+      box-shadow: 0 0 50px rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let t = 0;
+
+    const a = (
+      y,
+      d = mag(
+        k = (4 + cos(y)) * cos(i / 7),
+        e = y / 5 - 11
+      ) - 6
+    ) => point(
+      (79 + k * k) * sin(
+        c = d / 4 - t / 4 + i % 6 * 9
+      ) + 200,
+
+      119 * sin(c / 2)
+      + 200
+      + d ** 3 / 9 * sin(t * 3 - d / .7)
+      + 3 * sin(k * 2)
+      + y / 23 * k * (e + sin(e * 4 - d * 4))
+    );
+
+    function setup() {
+      createCanvas(400, 400);
+      pixelDensity(1);
+    }
+
+    function draw() {
+      background(9);
+      stroke(400, 96);
+
+      t += PI / 90;
+
+      for (i = 2e4; i--;) {
+        a(i / 798);
+      }
+    }
+  </script>
+</body>
+</html>
