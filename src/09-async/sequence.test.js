@@ -47,6 +47,13 @@ describe("runInSequence", () => {
     ]);
   });
 
+  it("conserva valores booleanos en los resultados", async () => {
+    const first = async () => true;
+    const second = async () => false;
+
+    await expect(runInSequence([first, second])).resolves.toEqual([true, false]);
+  });
+
   it("devuelve un array vacío si no hay tareas", async () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
