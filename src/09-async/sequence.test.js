@@ -54,6 +54,13 @@ describe("runInSequence", () => {
     await expect(runInSequence([first, second])).resolves.toEqual([true, false]);
   });
 
+  it("conserva cero y strings vacíos en los resultados", async () => {
+    const first = async () => 0;
+    const second = async () => "";
+
+    await expect(runInSequence([first, second])).resolves.toEqual([0, ""]);
+  });
+
   it("devuelve un array vacío si no hay tareas", async () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
