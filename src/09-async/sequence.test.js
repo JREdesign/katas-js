@@ -61,6 +61,14 @@ describe("runInSequence", () => {
     await expect(runInSequence([first, second])).resolves.toEqual([0, ""]);
   });
 
+  it("conserva objetos por referencia en los resultados", async () => {
+    const value = { id: 1 };
+
+    const result = await runInSequence([async () => value]);
+
+    expect(result[0]).toBe(value);
+  });
+
   it("devuelve un array vacío si no hay tareas", async () => {
     await expect(runInSequence([])).resolves.toEqual([]);
   });
