@@ -34,3 +34,9 @@ describe("moveItem", () => {
     expect(() => moveItem([1, 2], 3, 0)).toThrow(RangeError);
     expect(() => moveItem([1, 2], 0, -1)).toThrow(RangeError);
   });
+
+    it("lanza error con argumentos inválidos", () => {
+    expect(() => moveItem("no", 0, 1)).toThrow(TypeError);
+    expect(() => moveItem([1, 2], 0.5, 1)).toThrow(TypeError);
+  });
+});
