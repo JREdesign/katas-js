@@ -17,3 +17,7 @@ describe("moveItem", () => {
       "b"
     ]);
   });
+  
+  it("mantiene el array si los índices son iguales", () => {
+    expect(moveItem([1, 2, 3], 1, 1)).toEqual([1, 2, 3]);
+  });
