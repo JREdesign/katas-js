@@ -29,3 +29,8 @@ describe("moveItem", () => {
 
     expect(original).toEqual([1, 2, 3]);
   });
+
+    it("lanza error si un índice está fuera de rango", () => {
+    expect(() => moveItem([1, 2], 3, 0)).toThrow(RangeError);
+    expect(() => moveItem([1, 2], 0, -1)).toThrow(RangeError);
+  });
