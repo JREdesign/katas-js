@@ -21,3 +21,11 @@ describe("moveItem", () => {
   it("mantiene el array si los índices son iguales", () => {
     expect(moveItem([1, 2, 3], 1, 1)).toEqual([1, 2, 3]);
   });
+
+  it("no modifica el array original", () => {
+    const original = [1, 2, 3];
+
+    moveItem(original, 0, 2);
+
+    expect(original).toEqual([1, 2, 3]);
+  });
