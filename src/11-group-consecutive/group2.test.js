@@ -19,6 +19,13 @@ describe("groupConsecutive (group2)", () => {
     ]);
   });
 
+  it("agrupa números negativos consecutivos y el cero", () => {
+    expect(groupConsecutive([-3, -2, -1, 0, 2])).toEqual([
+      [-3, -2, -1, 0],
+      [2],
+    ]);
+  });
+
   it("devuelve un array vacío cuando no hay números", () => {
     expect(groupConsecutive([])).toEqual([]);
   });
