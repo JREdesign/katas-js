@@ -9,3 +9,5 @@ export function absoluteDifference(a, b) {
       "absoluteDifference: a y b deben ser numbers válidos"
     );
   }
+  return Math.abs(a - b);
+}
