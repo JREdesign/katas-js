@@ -4,4 +4,8 @@ export function absoluteDifference(a, b) {
     Number.isNaN(a) ||
     typeof b !== "number" ||
     Number.isNaN(b)
-  )
+ ) {
+    throw new TypeError(
+      "absoluteDifference: a y b deben ser numbers válidos"
+    );
+  }
