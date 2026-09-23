@@ -19,3 +19,11 @@ export function groupConsecutive(numbers) {
     return groups;
   }, []);
 }
+
+export function summarizeConsecutiveGroups(numbers) {
+  return groupConsecutive(numbers).map((group) => ({
+    start: group[0],
+    end: group.at(-1),
+    length: group.length,
+  }));
+}
