@@ -21,6 +21,16 @@ describe("group3", () => {
     ]);
   });
 
+  it("no modifica el array original al agrupar ni al resumir", () => {
+    const numbers = [3, 4, 1, 2, 2];
+    const original = [...numbers];
+
+    groupConsecutive(numbers);
+    summarizeConsecutiveGroups(numbers);
+
+    expect(numbers).toEqual(original);
+  });
+
   it("devuelve arrays vacíos cuando no hay números", () => {
     expect(groupConsecutive([])).toEqual([]);
     expect(summarizeConsecutiveGroups([])).toEqual([]);
