@@ -2,11 +2,9 @@ export function groupConsecutive(numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError("groupConsecutive: numbers debe ser un array");
   }
-
   if (!numbers.every(Number.isInteger)) {
     throw new TypeError("groupConsecutive: todos los valores deben ser enteros");
   }
-
   return numbers.reduce((groups, number) => {
     const lastGroup = groups.at(-1);
 
@@ -15,11 +13,9 @@ export function groupConsecutive(numbers) {
     } else {
       groups.push([number]);
     }
-
     return groups;
   }, []);
 }
-
 export function summarizeConsecutiveGroups(numbers) {
   return groupConsecutive(numbers).map((group) => ({
     start: group[0],
