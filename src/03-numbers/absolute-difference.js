@@ -5,3 +5,7 @@ export function absoluteDifference(a, b) {
     typeof b !== "number" ||
     Number.isNaN(b)
   ) {
+    throw new TypeError(
+      "absoluteDifference: a y b deben ser numbers válidos"
+    );
+  }
