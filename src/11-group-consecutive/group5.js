@@ -1,28 +1,16 @@
 export function groupConsecutive(numbers) {
-  if (!Array.isArray(numbers)) {
-    throw new TypeError("groupConsecutive: numbers debe ser un array");
+  if (!Array.isArray(numbers) || !numbers.every(Number.isInteger)) {
+    throw new TypeError("groupConsecutive: se esperaba un array de enteros");
   }
 
-  if (!numbers.every(Number.isInteger)) {
-    throw new TypeError("groupConsecutive: todos los valores deben ser enteros");
-  }
+  return numbers.reduce((groups, number) => {
+    const last = groups.at(-1);
 
-  const groups = [];
+    number === last?.at(-1) + 1 ? last.push(number) : groups.push([number]);
 
-  for (const number of numbers) {
-    const currentGroup = groups[groups.length - 1];
-
-    if (!currentGroup || number !== currentGroup[currentGroup.length - 1] + 1) {
-      groups.push([number]);
-      continue;
-    }
-
-    currentGroup.push(number);
-  }
-
-  return groups;
+    return groups;
+  }, []);
 }
 
-export function countConsecutiveGroups(numbers) {
-  return groupConsecutive(numbers).length;
-}
+export const countConsecutiveGroups = (numbers) =>
+  groupConsecutive(numbers).length;
