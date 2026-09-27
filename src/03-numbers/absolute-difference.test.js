@@ -11,3 +11,7 @@ describe("absoluteDifference", () => {
     expect(absoluteDifference(-5, 5)).toBe(10);
     expect(absoluteDifference(-10, -4)).toBe(6);
   });
+
+it("devuelve 0 si los números son iguales", () => {
+    expect(absoluteDifference(5, 5)).toBe(0);
+  });
