@@ -15,3 +15,7 @@ describe("absoluteDifference", () => {
 it("devuelve 0 si los números son iguales", () => {
     expect(absoluteDifference(5, 5)).toBe(0);
   });
+
+  it("funciona con decimales", () => {
+    expect(absoluteDifference(2.5, 1)).toBe(1.5);
+  });
