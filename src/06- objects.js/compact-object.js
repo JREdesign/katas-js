@@ -4,4 +4,11 @@ export function compactObject(obj) {
       "compactObject: obj debe ser un objeto simple"
     );
   }
+  
  const result = {};
+
+  for (const [key, value] of Object.entries(obj)) {
+    if (value) {
+      result[key] = value;
+    }
+  }
