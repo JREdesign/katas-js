@@ -12,3 +12,6 @@ export function compactObject(obj) {
       result[key] = value;
     }
   }
+
+  return result;
+}
