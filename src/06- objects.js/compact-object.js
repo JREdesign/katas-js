@@ -4,3 +4,4 @@ export function compactObject(obj) {
       "compactObject: obj debe ser un objeto simple"
     );
   }
+ const result = {};
