@@ -11,3 +11,8 @@ describe("compactObject", () => {
         role: "developer",
         note: ""
       })
+    ).toEqual({
+      name: "Jorge",
+      role: "developer"
+    });
+  });
