@@ -28,3 +28,14 @@ describe("compactObject", () => {
       items: []
     });
   });
+  
+  it("devuelve un objeto vacío si todos los valores son falsy", () => {
+    expect(
+      compactObject({
+        a: null,
+        b: undefined,
+        c: 0,
+        d: false
+      })
+    ).toEqual({});
+  });
