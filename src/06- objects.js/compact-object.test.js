@@ -23,3 +23,8 @@ describe("compactObject", () => {
         settings: {},
         items: []
       })
+    ).toEqual({
+      settings: {},
+      items: []
+    });
+  });
