@@ -16,3 +16,10 @@ describe("compactObject", () => {
       role: "developer"
     });
   });
+
+    it("mantiene objetos y arrays vacíos porque son truthy", () => {
+    expect(
+      compactObject({
+        settings: {},
+        items: []
+      })
