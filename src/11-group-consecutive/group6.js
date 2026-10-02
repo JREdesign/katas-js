@@ -29,3 +29,7 @@ export function longestConsecutiveGroup(numbers) {
 export function consecutiveGroupLengths(numbers) {
   return groupConsecutive(numbers).map((group) => group.length);
 }
+
+export function countConsecutiveGroups(numbers) {
+  return groupConsecutive(numbers).length;
+}
