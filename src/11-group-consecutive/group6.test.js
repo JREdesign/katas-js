@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  consecutiveGroupLengths,
   groupConsecutive,
   longestConsecutiveGroup,
 } from "./group6.js";
@@ -19,13 +20,21 @@ describe("group6", () => {
     ]);
   });
 
+  it("devuelve la longitud de cada grupo consecutivo", () => {
+    expect(consecutiveGroupLengths([1, 2, 3, 7, 8, 10])).toEqual([
+      3, 2, 1,
+    ]);
+  });
+
   it("devuelve un array vacío si no hay números", () => {
     expect(groupConsecutive([])).toEqual([]);
     expect(longestConsecutiveGroup([])).toEqual([]);
+    expect(consecutiveGroupLengths([])).toEqual([]);
   });
 
   it("rechaza entradas que no sean arrays de enteros", () => {
     expect(() => groupConsecutive("1,2,3")).toThrow(TypeError);
     expect(() => longestConsecutiveGroup([1, 2.5, 3])).toThrow(TypeError);
+    expect(() => consecutiveGroupLengths([1, 2.5, 3])).toThrow(TypeError);
   });
 });
