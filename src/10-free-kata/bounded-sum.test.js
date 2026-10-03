@@ -16,4 +16,19 @@ describe("boundedSum", () => {
       count: 2,
     });
   });
+
+  it("devuelve cero y ningún valor si el primer número supera el límite", () => {
+    expect(boundedSum([10, 1, 2], 5)).toBe(0);
+    expect(boundedSumDetails([10, 1, 2], 5)).toEqual({
+      total: 0,
+      used: [],
+      count: 0,
+    });
+  });
+
+  it("rechaza entradas inválidas", () => {
+    expect(() => boundedSum("1,2,3", 5)).toThrow(TypeError);
+    expect(() => boundedSum([1, 2, 3], Infinity)).toThrow(TypeError);
+    expect(() => boundedSumDetails([1, NaN], 5)).toThrow(TypeError);
+  });
 });
