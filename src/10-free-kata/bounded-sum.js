@@ -16,3 +16,18 @@ export function boundedSum(numbers, limit) {
 
   return total;
 }
+
+export function boundedSumDetails(numbers, limit) {
+  const total = boundedSum(numbers, limit);
+  const used = [];
+
+  let runningTotal = 0;
+
+  for (const number of numbers) {
+    if (runningTotal + number > limit) break;
+    runningTotal += number;
+    used.push(number);
+  }
+
+  return { total, used, count: used.length };
+}
