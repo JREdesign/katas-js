@@ -13,3 +13,17 @@ export function rotateArray(items, steps = 1) {
 
   return [...items.slice(-offset), ...items.slice(0, -offset)];
 }
+
+export function rotateArrayDetails(items, steps = 1) {
+  const rotated = rotateArray(items, steps);
+  const offset =
+    items.length === 0
+      ? 0
+      : ((steps % items.length) + items.length) % items.length;
+
+  return {
+    rotated,
+    offset,
+    changed: offset !== 0,
+  };
+}
