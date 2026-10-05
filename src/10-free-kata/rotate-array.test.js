@@ -17,4 +17,23 @@ describe("rotateArray", () => {
       changed: true,
     });
   });
+
+  it("admite rotaciones negativas y mayores que la longitud", () => {
+    expect(rotateArray([1, 2, 3, 4], -1)).toEqual([2, 3, 4, 1]);
+    expect(rotateArray([1, 2, 3], 4)).toEqual([3, 1, 2]);
+  });
+
+  it("maneja arrays vacíos y rotaciones sin cambio", () => {
+    expect(rotateArray([], 3)).toEqual([]);
+    expect(rotateArrayDetails([1, 2, 3], 3)).toEqual({
+      rotated: [1, 2, 3],
+      offset: 0,
+      changed: false,
+    });
+  });
+
+  it("rechaza entradas inválidas", () => {
+    expect(() => rotateArray("123", 1)).toThrow(TypeError);
+    expect(() => rotateArray([1, 2, 3], 1.5)).toThrow(TypeError);
+  });
 });
