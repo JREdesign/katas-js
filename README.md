@@ -4,10 +4,23 @@ Este repositorio contiene katas y ejercicios pequeños de JavaScript, pensados p
 
 ## Estructura
 
-- Las katas están dentro de `src/` y se agrupan por temas (strings, arrays, objetos, etc.).
-- Cada kata incluye:
+- Las katas están dentro de `src/` y se agrupan por temas.
+- Actualmente hay ejercicios de:
+  - strings
+  - arrays
+  - números
+  - objetos
+  - chunking de arrays
+  - palíndromos
+  - programación funcional
+  - asincronía
+  - agrupación de valores consecutivos
+  - katas libres para practicar problemas variados
+- Cada kata suele incluir:
   - un archivo con la solución en JavaScript
   - un archivo de tests para verificar el comportamiento
+
+Entre las katas libres hay ejercicios como sumas limitadas y rotación de arrays, además de pequeñas variaciones pensadas para practicar refactors y ampliar cobertura con tests.
 
 Ejemplo de estructura:
 
@@ -15,6 +28,16 @@ Ejemplo de estructura:
       01-strings/
         reverse-string.js
         reverse-string.test.js
+
+      10-free-kata/
+        bounded-sum.js
+        bounded-sum.test.js
+        rotate-array.js
+        rotate-array.test.js
+
+      11-group-consecutive/
+        group6.js
+        group6.test.js
 
 ## Cómo ejecutar los tests
 
