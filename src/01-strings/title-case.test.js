@@ -11,3 +11,7 @@ describe("titleCase", () => {
   it("normaliza espacios adicionales", () => {
     expect(titleCase("  hola   mundo  ")).toBe("Hola Mundo");
   });
+  it("devuelve un string vacío si no hay contenido", () => {
+    expect(titleCase("")).toBe("");
+    expect(titleCase("   ")).toBe("");
+  });
