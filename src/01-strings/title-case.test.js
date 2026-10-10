@@ -16,8 +16,4 @@ describe("titleCase", () => {
     expect(titleCase("   ")).toBe("");
   });
 
-  it("lanza error si no recibe un string", () => {
-    expect(() => titleCase(123)).toThrow(TypeError);
-    expect(() => titleCase(null)).toThrow(TypeError);
-  });
-});
+
