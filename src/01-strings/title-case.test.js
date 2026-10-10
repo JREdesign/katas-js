@@ -8,3 +8,6 @@ describe("titleCase", () => {
   it("normaliza mayúsculas y minúsculas", () => {
     expect(titleCase("hOLA mUNDO")).toBe("Hola Mundo");
   });
+  it("normaliza espacios adicionales", () => {
+    expect(titleCase("  hola   mundo  ")).toBe("Hola Mundo");
+  });
