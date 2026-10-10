@@ -5,3 +5,6 @@ describe("titleCase", () => {
   it("capitaliza la primera letra de cada palabra", () => {
     expect(titleCase("hola mundo")).toBe("Hola Mundo");
   });
+  it("normaliza mayúsculas y minúsculas", () => {
+    expect(titleCase("hOLA mUNDO")).toBe("Hola Mundo");
+  });
