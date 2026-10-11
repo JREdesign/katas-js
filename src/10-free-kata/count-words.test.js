@@ -1,0 +1,21 @@
+import { describe, expect, it } from "vitest";
+import { countWords, wordFrequencies } from "./count-words.js";
+
+describe("countWords", () => {
+  it("cuenta las palabras separadas por espacios", () => {
+    expect(countWords("hola mundo desde JavaScript")).toBe(4);
+  });
+
+  it("cuenta palabras con espacios repetidos y saltos de línea", () => {
+    expect(countWords("  hola   mundo\n otra  vez ")).toBe(4);
+  });
+});
+
+describe("wordFrequencies", () => {
+  it("cuenta las repeticiones sin distinguir mayúsculas", () => {
+    expect(wordFrequencies("Hola mundo HOLA")).toEqual({
+      hola: 2,
+      mundo: 1,
+    });
+  });
+});
