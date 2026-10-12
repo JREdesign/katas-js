@@ -5,3 +5,7 @@ export function uniqueCharacters(text) {
 
   return [...new Set(text)];
 }
+
+export function countUniqueCharacters(text) {
+  return uniqueCharacters(text).length;
+}
