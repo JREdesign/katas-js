@@ -21,4 +21,18 @@ describe("chunkString", () => {
       lastChunk: "g",
     });
   });
+
+  it("maneja cadenas vacías", () => {
+    expect(chunkString("", 2)).toEqual([]);
+    expect(countStringChunks("", 2)).toBe(0);
+    expect(chunkStringSummary("", 2)).toEqual({
+      chunks: [],
+      count: 0,
+      lastChunk: "",
+    });
+  });
+
+  it("no parte caracteres Unicode representados por pares sustitutos", () => {
+    expect(chunkString("😀🎉🌟", 2)).toEqual(["😀🎉", "🌟"]);
+  });
 });
