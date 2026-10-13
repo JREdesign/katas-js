@@ -35,4 +35,15 @@ describe("chunkString", () => {
   it("no parte caracteres Unicode representados por pares sustitutos", () => {
     expect(chunkString("😀🎉🌟", 2)).toEqual(["😀🎉", "🌟"]);
   });
+
+  it("rechaza valores que no son cadenas", () => {
+    expect(() => chunkString(null, 2)).toThrow(TypeError);
+    expect(() => countStringChunks(123, 2)).toThrow(TypeError);
+  });
+
+  it("rechaza tamaños inválidos", () => {
+    expect(() => chunkString("abc", 0)).toThrow(RangeError);
+    expect(() => chunkString("abc", -1)).toThrow(RangeError);
+    expect(() => chunkStringSummary("abc", 1.5)).toThrow(RangeError);
+  });
 });
