@@ -16,3 +16,7 @@ export function chunkString(text, size) {
 
   return chunks;
 }
+
+export function countStringChunks(text, size) {
+  return chunkString(text, size).length;
+}
