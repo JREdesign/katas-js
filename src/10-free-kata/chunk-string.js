@@ -20,3 +20,13 @@ export function chunkString(text, size) {
 export function countStringChunks(text, size) {
   return chunkString(text, size).length;
 }
+
+export function chunkStringSummary(text, size) {
+  const chunks = chunkString(text, size);
+
+  return {
+    chunks,
+    count: chunks.length,
+    lastChunk: chunks.at(-1) ?? "",
+  };
+}
