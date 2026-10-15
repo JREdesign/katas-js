@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { rangeIntersection, rangesOverlap } from "./range-overlap.js";
+import {
+  rangeIntersection,
+  rangeIntersectionLength,
+  rangesOverlap,
+} from "./range-overlap.js";
 
 describe("range overlap", () => {
   it("detecta intervalos que se solapan", () => {
@@ -20,6 +24,13 @@ describe("range overlap", () => {
   it("permite intervalos de un solo punto y números negativos", () => {
     expect(rangesOverlap([2, 2], [1, 4])).toBe(true);
     expect(rangeIntersection([-5, -1], [-3, 2])).toEqual([-3, -1]);
+  });
+
+  it("calcula la longitud de la intersección", () => {
+    expect(rangeIntersectionLength([1, 5], [3, 7])).toBe(2);
+    expect(rangeIntersectionLength([-5, -1], [-3, 2])).toBe(2);
+    expect(rangeIntersectionLength([1, 3], [3, 6])).toBe(0);
+    expect(rangeIntersectionLength([1, 2], [4, 6])).toBe(0);
   });
 
   it("rechaza intervalos inválidos", () => {
