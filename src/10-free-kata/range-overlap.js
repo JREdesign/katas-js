@@ -12,3 +12,12 @@ export function rangesOverlap(first, second) {
 
   return first[0] <= second[1] && second[0] <= first[1];
 }
+
+export function rangeIntersection(first, second) {
+  if (!rangesOverlap(first, second)) return null;
+
+  return [
+    Math.max(first[0], second[0]),
+    Math.min(first[1], second[1]),
+  ];
+}
