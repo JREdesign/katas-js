@@ -26,3 +26,13 @@ export function rangeIntersectionLength(first, second) {
   const intersection = rangeIntersection(first, second);
   return intersection ? intersection[1] - intersection[0] : 0;
 }
+
+export function rangeIntersectionSummary(first, second) {
+  const intersection = rangeIntersection(first, second);
+
+  return {
+    overlaps: intersection !== null,
+    intersection,
+    length: intersection ? intersection[1] - intersection[0] : 0,
+  };
+}
