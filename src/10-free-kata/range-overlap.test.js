@@ -11,4 +11,20 @@ describe("range overlap", () => {
     expect(rangeIntersection([1, 5], [3, 7])).toEqual([3, 5]);
     expect(rangeIntersection([1, 2], [4, 6])).toBeNull();
   });
+
+  it("considera solapamiento cuando los extremos coinciden", () => {
+    expect(rangesOverlap([1, 3], [3, 6])).toBe(true);
+    expect(rangeIntersection([1, 3], [3, 6])).toEqual([3, 3]);
+  });
+
+  it("permite intervalos de un solo punto y números negativos", () => {
+    expect(rangesOverlap([2, 2], [1, 4])).toBe(true);
+    expect(rangeIntersection([-5, -1], [-3, 2])).toEqual([-3, -1]);
+  });
+
+  it("rechaza intervalos inválidos", () => {
+    expect(() => rangesOverlap([3, 1], [1, 5])).toThrow(TypeError);
+    expect(() => rangeIntersection([1, Infinity], [2, 3])).toThrow(TypeError);
+    expect(() => rangesOverlap([1], [1, 2])).toThrow(TypeError);
+  });
 });
