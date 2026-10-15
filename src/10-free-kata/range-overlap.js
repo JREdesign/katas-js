@@ -21,3 +21,8 @@ export function rangeIntersection(first, second) {
     Math.min(first[1], second[1]),
   ];
 }
+
+export function rangeIntersectionLength(first, second) {
+  const intersection = rangeIntersection(first, second);
+  return intersection ? intersection[1] - intersection[0] : 0;
+}
