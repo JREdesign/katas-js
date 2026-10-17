@@ -1,4 +1,4 @@
-export function insertAt(arr, index, value) {
+function insertionPosition(arr, index) {
   if (!Array.isArray(arr)) {
     throw new TypeError("insertAt: arr debe ser un array");
   }
@@ -11,6 +11,20 @@ export function insertAt(arr, index, value) {
     throw new RangeError("insertAt: index fuera de rango");
   }
 
-  const position = index < 0 ? arr.length + index : index;
+  return index < 0 ? arr.length + index : index;
+}
+
+export function insertAt(arr, index, value) {
+  const position = insertionPosition(arr, index);
   return [...arr.slice(0, position), value, ...arr.slice(position)];
+}
+
+export function insertManyAt(arr, index, values) {
+  const position = insertionPosition(arr, index);
+
+  if (!Array.isArray(values)) {
+    throw new TypeError("insertManyAt: values debe ser un array");
+  }
+
+  return [...arr.slice(0, position), ...values, ...arr.slice(position)];
 }
