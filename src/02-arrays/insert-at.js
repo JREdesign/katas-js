@@ -7,9 +7,10 @@ export function insertAt(arr, index, value) {
     throw new TypeError("insertAt: index debe ser un entero");
   }
 
-  if (index < 0 || index > arr.length) {
+  if (index < -arr.length || index > arr.length) {
     throw new RangeError("insertAt: index fuera de rango");
   }
 
-  return [...arr.slice(0, index), value, ...arr.slice(index)];
+  const position = index < 0 ? arr.length + index : index;
+  return [...arr.slice(0, position), value, ...arr.slice(position)];
 }
