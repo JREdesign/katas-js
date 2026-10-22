@@ -36,3 +36,20 @@ describe("countEvens", () => {
     expect(() => countEvens([2, 2.5])).toThrow(TypeError);
   });
 });
+
+describe("averageEvens", () => {
+  it("calcula la media de los números pares", () => {
+    expect(averageEvens([1, 2, 4, 8])).toBe(14 / 3);
+    expect(averageEvens([-4, 0, 2])).toBe(-2 / 3);
+  });
+
+  it("devuelve null cuando no hay números pares", () => {
+    expect(averageEvens([1, 3, 5])).toBeNull();
+    expect(averageEvens([])).toBeNull();
+  });
+
+  it("rechaza entradas inválidas", () => {
+    expect(() => averageEvens("2,4")).toThrow(TypeError);
+    expect(() => averageEvens([2, NaN])).toThrow(TypeError);
+  });
+});
