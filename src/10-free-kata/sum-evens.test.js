@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { sumEvens } from "./sum-evens.js";
+import { countEvens, sumEvens, averageEvens } from "./sum-evens.js";
 
 describe("sumEvens", () => {
   it("suma únicamente los números pares", () => {
@@ -19,5 +19,20 @@ describe("sumEvens", () => {
     expect(() => sumEvens("2,4")).toThrow(TypeError);
     expect(() => sumEvens([2, 3.5])).toThrow(TypeError);
     expect(() => sumEvens([2, NaN])).toThrow(TypeError);
+  });
+});
+
+describe("countEvens", () => {
+  it("cuenta los números pares, incluido el cero", () => {
+    expect(countEvens([1, 2, 0, 4, 7])).toBe(3);
+  });
+
+  it("devuelve cero cuando no hay pares", () => {
+    expect(countEvens([1, 3, 5])).toBe(0);
+    expect(countEvens([])).toBe(0);
+  });
+
+  it("rechaza elementos no enteros", () => {
+    expect(() => countEvens([2, 2.5])).toThrow(TypeError);
   });
 });
