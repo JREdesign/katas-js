@@ -15,3 +15,8 @@ export function countEvens(numbers) {
 
   return numbers.filter((number) => number % 2 === 0).length;
 }
+
+export function averageEvens(numbers) {
+  const count = countEvens(numbers);
+  return count === 0 ? null : sumEvens(numbers) / count;
+}
