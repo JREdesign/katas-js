@@ -6,3 +6,7 @@ describe("sumDigits", () => {
     expect(sumDigits(123)).toBe(6);
     expect(sumDigits(4567)).toBe(22);
   });
+
+  it("funciona con números negativos", () => {
+    expect(sumDigits(-123)).toBe(6);
+  });
