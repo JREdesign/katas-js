@@ -14,3 +14,7 @@ describe("sumDigits", () => {
   it("devuelve 0 para cero", () => {
     expect(sumDigits(0)).toBe(0);
   });
+
+  it("funciona con números de un solo dígito", () => {
+    expect(sumDigits(7)).toBe(7);
+  });
