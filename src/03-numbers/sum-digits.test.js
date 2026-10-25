@@ -18,3 +18,10 @@ describe("sumDigits", () => {
   it("funciona con números de un solo dígito", () => {
     expect(sumDigits(7)).toBe(7);
   });
+
+  it("lanza error si no recibe un entero", () => {
+    expect(() => sumDigits(1.5)).toThrow(TypeError);
+    expect(() => sumDigits("123")).toThrow(TypeError);
+    expect(() => sumDigits(NaN)).toThrow(TypeError);
+  });
+});
