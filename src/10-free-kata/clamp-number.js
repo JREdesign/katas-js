@@ -9,3 +9,7 @@ export function clampNumber(value, min, max) {
 
   return Math.min(Math.max(value, min), max);
 }
+
+export function isWithinRange(value, min, max) {
+  return clampNumber(value, min, max) === value;
+}
