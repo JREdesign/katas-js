@@ -28,3 +28,29 @@ describe("isWithinRange", () => {
     expect(isWithinRange(11, 0, 10)).toBe(false);
   });
 });
+
+describe("clampNumbers", () => {
+  it("limita todos los números sin modificar el array original", () => {
+    const numbers = [-4, 3, 15];
+    expect(clampNumbers(numbers, 0, 10)).toEqual([0, 3, 10]);
+    expect(numbers).toEqual([-4, 3, 15]);
+  });
+
+  it("maneja arrays vacíos", () => {
+    expect(clampNumbers([], 0, 10)).toEqual([]);
+  });
+
+  it("rechaza datos inválidos", () => {
+    expect(() => clampNumbers("1,2", 0, 10)).toThrow(TypeError);
+    expect(() => clampNumbers([1, NaN], 0, 10)).toThrow(TypeError);
+    expect(() => clampNumbers([1], 10, 0)).toThrow(RangeError);
+  });
+});
+
+describe("validación de límites", () => {
+  it("rechaza números no finitos y límites invertidos", () => {
+    expect(() => clampNumber(Infinity, 0, 10)).toThrow(TypeError);
+    expect(() => clampNumber(5, 10, 0)).toThrow(RangeError);
+    expect(() => isWithinRange(NaN, 0, 10)).toThrow(TypeError);
+  });
+});
