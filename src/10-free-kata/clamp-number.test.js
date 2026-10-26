@@ -15,3 +15,16 @@ describe("clampNumber", () => {
     expect(clampNumber(15, 0, 10)).toBe(10);
   });
 });
+
+describe("isWithinRange", () => {
+  it("reconoce los valores interiores y los extremos", () => {
+    expect(isWithinRange(5, 0, 10)).toBe(true);
+    expect(isWithinRange(0, 0, 10)).toBe(true);
+    expect(isWithinRange(10, 0, 10)).toBe(true);
+  });
+
+  it("rechaza valores fuera de los límites", () => {
+    expect(isWithinRange(-1, 0, 10)).toBe(false);
+    expect(isWithinRange(11, 0, 10)).toBe(false);
+  });
+});
