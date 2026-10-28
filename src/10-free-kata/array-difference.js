@@ -23,3 +23,13 @@ export function arrayIntersection(first, second) {
   const included = new Set(second);
   return [...new Set(first)].filter((value) => included.has(value));
 }
+
+export function compareArrays(first, second) {
+  validateArrays(first, second);
+
+  return {
+    onlyFirst: arrayDifference(first, second),
+    onlySecond: arrayDifference(second, first),
+    common: arrayIntersection(first, second),
+  };
+}
