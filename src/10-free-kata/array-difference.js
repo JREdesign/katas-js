@@ -17,3 +17,9 @@ export function symmetricDifference(first, second) {
     ...arrayDifference(second, first),
   ];
 }
+
+export function arrayIntersection(first, second) {
+  validateArrays(first, second);
+  const included = new Set(second);
+  return [...new Set(first)].filter((value) => included.has(value));
+}
