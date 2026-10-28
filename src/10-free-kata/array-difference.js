@@ -9,3 +9,11 @@ export function arrayDifference(first, second) {
   const excluded = new Set(second);
   return [...new Set(first)].filter((value) => !excluded.has(value));
 }
+
+export function symmetricDifference(first, second) {
+  validateArrays(first, second);
+  return [
+    ...arrayDifference(first, second),
+    ...arrayDifference(second, first),
+  ];
+}
