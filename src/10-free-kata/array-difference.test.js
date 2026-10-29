@@ -30,3 +30,38 @@ describe("arrayIntersection", () => {
     expect(arrayIntersection([1], [2])).toEqual([]);
   });
 });
+
+describe("compareArrays", () => {
+  it("resume los elementos exclusivos y comunes", () => {
+    expect(compareArrays([1, 2, 2, 3], [2, 4, 4])).toEqual({
+      onlyFirst: [1, 3],
+      onlySecond: [4],
+      common: [2],
+    });
+  });
+
+  it("maneja dos arrays vacíos", () => {
+    expect(compareArrays([], [])).toEqual({
+      onlyFirst: [],
+      onlySecond: [],
+      common: [],
+    });
+  });
+
+  it("no modifica los arrays originales", () => {
+    const first = [3, 1, 3];
+    const second = [3, 2];
+    compareArrays(first, second);
+    expect(first).toEqual([3, 1, 3]);
+    expect(second).toEqual([3, 2]);
+  });
+});
+
+describe("validación", () => {
+  it("rechaza argumentos que no sean arrays en todas las funciones", () => {
+    for (const fn of [arrayDifference, symmetricDifference, arrayIntersection, compareArrays]) {
+      expect(() => fn(null, [])).toThrow(TypeError);
+      expect(() => fn([], "2")).toThrow(TypeError);
+    }
+  });
+});
