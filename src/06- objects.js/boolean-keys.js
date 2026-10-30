@@ -4,3 +4,8 @@ export function booleanKeys(obj) {
       "booleanKeys: obj debe ser un objeto simple"
     );
   }
+  
+  return Object.entries(obj)
+    .filter(([, value]) => typeof value === "boolean")
+    .map(([key]) => key);
+}
