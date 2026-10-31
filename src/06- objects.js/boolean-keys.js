@@ -4,8 +4,16 @@ export function booleanKeys(obj) {
       "booleanKeys: obj debe ser un objeto simple"
     );
   }
-  
+
   return Object.entries(obj)
     .filter(([, value]) => typeof value === "boolean")
     .map(([key]) => key);
+}
+
+export function booleanKeysByValue(obj, expectedValue) {
+  if (typeof expectedValue !== "boolean") {
+    throw new TypeError("booleanKeysByValue: expectedValue debe ser booleano");
+  }
+
+  return booleanKeys(obj).filter((key) => obj[key] === expectedValue);
 }
