@@ -17,3 +17,14 @@ export function booleanKeysByValue(obj, expectedValue) {
 
   return booleanKeys(obj).filter((key) => obj[key] === expectedValue);
 }
+
+export function booleanKeysSummary(obj) {
+  const trueKeys = booleanKeysByValue(obj, true);
+  const falseKeys = booleanKeysByValue(obj, false);
+
+  return {
+    trueKeys,
+    falseKeys,
+    total: trueKeys.length + falseKeys.length,
+  };
+}
