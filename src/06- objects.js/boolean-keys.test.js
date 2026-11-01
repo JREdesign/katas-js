@@ -94,3 +94,16 @@ describe("booleanKeys con propiedades especiales", () => {
     expect(booleanKeys(object)).toEqual(["first", "last"]);
   });
 });
+
+describe("toggleBooleanKeys con valores anidados", () => {
+  it("solo invierte booleanos de primer nivel y conserva las referencias anidadas", () => {
+    const nested = { enabled: true };
+    const original = { active: true, nested, disabled: false };
+    const result = toggleBooleanKeys(original);
+
+    expect(result).toEqual({ active: false, nested: { enabled: true }, disabled: true });
+    expect(result.nested).toBe(nested);
+    expect(original.active).toBe(true);
+    expect(original.disabled).toBe(false);
+  });
+});
