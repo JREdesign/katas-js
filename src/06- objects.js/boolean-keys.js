@@ -28,3 +28,19 @@ export function booleanKeysSummary(obj) {
     total: trueKeys.length + falseKeys.length,
   };
 }
+
+export function toggleBooleanKeys(obj) {
+  const keys = booleanKeys(obj);
+  const result = { ...obj };
+
+  for (const key of keys) {
+    Object.defineProperty(result, key, {
+      value: !obj[key],
+      enumerable: true,
+      writable: true,
+      configurable: true,
+    });
+  }
+
+  return result;
+}
