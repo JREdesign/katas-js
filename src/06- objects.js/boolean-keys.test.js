@@ -83,3 +83,14 @@ describe("toggleBooleanKeys", () => {
     expect(() => toggleBooleanKeys([])).toThrow(TypeError);
   });
 });
+
+describe("booleanKeys con propiedades especiales", () => {
+  it("ignora las propiedades heredadas y conserva el orden de las propias", () => {
+    const object = Object.create({ inherited: true });
+    object.first = false;
+    object.text = "sí";
+    object.last = true;
+
+    expect(booleanKeys(object)).toEqual(["first", "last"]);
+  });
+});
