@@ -139,3 +139,20 @@ describe("pickBooleanProperties", () => {
     expect(() => pickBooleanProperties([])).toThrow(TypeError);
   });
 });
+
+describe("setBooleanKey", () => {
+  it("actualiza un booleano sin mutar el objeto original", () => {
+    const original = { active: false, label: "ok" };
+    const result = setBooleanKey(original, "active", true);
+    expect(result).toEqual({ active: true, label: "ok" });
+    expect(original).toEqual({ active: false, label: "ok" });
+    expect(result).not.toBe(original);
+  });
+
+  it("rechaza claves ausentes, no booleanas o valores inválidos", () => {
+    expect(() => setBooleanKey({ active: true }, "missing", false)).toThrow(TypeError);
+    expect(() => setBooleanKey({ count: 1 }, "count", true)).toThrow(TypeError);
+    expect(() => setBooleanKey({ active: true }, "active", 1)).toThrow(TypeError);
+    expect(() => setBooleanKey(null, "active", true)).toThrow(TypeError);
+  });
+});
