@@ -4,6 +4,9 @@ import {
   booleanKeysByValue,
   booleanKeysSummary,
   toggleBooleanKeys,
+  countBooleanValues,
+  pickBooleanProperties,
+  setBooleanKey,
 } from "./boolean-keys.js";
 
 describe("booleanKeys", () => {
@@ -105,5 +108,17 @@ describe("toggleBooleanKeys con valores anidados", () => {
     expect(result.nested).toBe(nested);
     expect(original.active).toBe(true);
     expect(original.disabled).toBe(false);
+  });
+});
+
+describe("countBooleanValues", () => {
+  it("cuenta true y false por separado", () => {
+    expect(countBooleanValues({ a: true, b: false, c: true, d: 0 }))
+      .toEqual({ trueCount: 2, falseCount: 1 });
+  });
+
+  it("devuelve ceros cuando no hay booleanos y valida los argumentos", () => {
+    expect(countBooleanValues({})).toEqual({ trueCount: 0, falseCount: 0 });
+    expect(() => countBooleanValues(null)).toThrow(TypeError);
   });
 });
