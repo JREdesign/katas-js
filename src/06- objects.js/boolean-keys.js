@@ -53,3 +53,9 @@ export function countBooleanValues(obj) {
     falseCount: falseKeys.length,
   };
 }
+
+export function pickBooleanProperties(obj) {
+  return Object.fromEntries(
+    booleanKeys(obj).map((key) => [key, obj[key]])
+  );
+}
