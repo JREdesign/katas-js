@@ -59,3 +59,24 @@ export function pickBooleanProperties(obj) {
     booleanKeys(obj).map((key) => [key, obj[key]])
   );
 }
+
+export function setBooleanKey(obj, key, value) {
+  booleanKeys(obj);
+
+  if (typeof key !== "string" || !Object.prototype.hasOwnProperty.call(obj, key) ||
+      typeof obj[key] !== "boolean") {
+    throw new TypeError("setBooleanKey: key debe ser una clave booleana propia");
+  }
+  if (typeof value !== "boolean") {
+    throw new TypeError("setBooleanKey: value debe ser booleano");
+  }
+
+  const result = { ...obj };
+  Object.defineProperty(result, key, {
+    value,
+    enumerable: true,
+    writable: true,
+    configurable: true,
+  });
+  return result;
+}
