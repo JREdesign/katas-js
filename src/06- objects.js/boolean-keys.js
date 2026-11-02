@@ -44,3 +44,12 @@ export function toggleBooleanKeys(obj) {
 
   return result;
 }
+
+export function countBooleanValues(obj) {
+  const { trueKeys, falseKeys } = booleanKeysSummary(obj);
+
+  return {
+    trueCount: trueKeys.length,
+    falseCount: falseKeys.length,
+  };
+}
