@@ -122,3 +122,20 @@ describe("countBooleanValues", () => {
     expect(() => countBooleanValues(null)).toThrow(TypeError);
   });
 });
+
+describe("pickBooleanProperties", () => {
+  it("extrae únicamente las propiedades booleanas propias", () => {
+    const obj = Object.create({ inherited: true });
+    obj.active = true;
+    obj.name = "Ana";
+    obj.hidden = false;
+    expect(pickBooleanProperties(obj)).toEqual({ active: true, hidden: false });
+  });
+
+  it("no cambia el original y maneja objetos sin booleanos", () => {
+    const obj = { count: 0 };
+    expect(pickBooleanProperties(obj)).toEqual({});
+    expect(obj).toEqual({ count: 0 });
+    expect(() => pickBooleanProperties([])).toThrow(TypeError);
+  });
+});
