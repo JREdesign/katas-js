@@ -80,3 +80,7 @@ export function setBooleanKey(obj, key, value) {
   });
   return result;
 }
+
+export function hasBooleanKeys(obj) {
+  return booleanKeys(obj).length > 0;
+}
