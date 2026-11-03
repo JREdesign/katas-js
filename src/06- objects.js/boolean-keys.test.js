@@ -7,6 +7,7 @@ import {
   countBooleanValues,
   pickBooleanProperties,
   setBooleanKey,
+  hasBooleanKeys,
 } from "./boolean-keys.js";
 
 describe("booleanKeys", () => {
@@ -154,5 +155,19 @@ describe("setBooleanKey", () => {
     expect(() => setBooleanKey({ count: 1 }, "count", true)).toThrow(TypeError);
     expect(() => setBooleanKey({ active: true }, "active", 1)).toThrow(TypeError);
     expect(() => setBooleanKey(null, "active", true)).toThrow(TypeError);
+  });
+});
+
+describe("hasBooleanKeys", () => {
+  it("detecta si existe alguna propiedad booleana propia", () => {
+    expect(hasBooleanKeys({ active: false, count: 0 })).toBe(true);
+    expect(hasBooleanKeys({ active: true })).toBe(true);
+  });
+
+  it("devuelve false sin booleanos propios y valida la entrada", () => {
+    expect(hasBooleanKeys({ count: 0, label: "ok" })).toBe(false);
+    expect(hasBooleanKeys({})).toBe(false);
+    expect(hasBooleanKeys(Object.create({ inherited: true }))).toBe(false);
+    expect(() => hasBooleanKeys(null)).toThrow(TypeError);
   });
 });
