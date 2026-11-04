@@ -42,3 +42,40 @@ describe("findDuplicates", () => {
     expect(() => findDuplicates([1, NaN])).toThrow(TypeError);
   });
 });
+
+describe("duplicatesSummary", () => {
+  it("resume los valores únicos, repetidos y sus cantidades", () => {
+    expect(duplicatesSummary([3, 1, 3, 2, 1, 3])).toEqual({
+      unique: [3, 1, 2],
+      duplicates: [3, 1],
+      total: 6,
+      uniqueCount: 3,
+      duplicateCount: 3,
+    });
+  });
+
+  it("maneja arrays vacíos y arrays sin duplicados", () => {
+    expect(duplicatesSummary([])).toEqual({
+      unique: [],
+      duplicates: [],
+      total: 0,
+      uniqueCount: 0,
+      duplicateCount: 0,
+    });
+    expect(duplicatesSummary([2, 4])).toEqual({
+      unique: [2, 4],
+      duplicates: [],
+      total: 2,
+      uniqueCount: 2,
+      duplicateCount: 0,
+    });
+  });
+
+  it("rechaza valores no finitos y no muta el array original", () => {
+    const numbers = [1, 1, -2];
+    duplicatesSummary(numbers);
+    expect(numbers).toEqual([1, 1, -2]);
+    expect(() => duplicatesSummary([Infinity])).toThrow(TypeError);
+    expect(() => duplicatesSummary("1,2")).toThrow(TypeError);
+  });
+});
