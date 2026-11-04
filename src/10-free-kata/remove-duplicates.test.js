@@ -70,3 +70,12 @@ describe("duplicatesSummary", () => {
       duplicateCount: 0,
     });
   });
+
+  it("rechaza valores no finitos y no muta el array original", () => {
+    const numbers = [1, 1, -2];
+    duplicatesSummary(numbers);
+    expect(numbers).toEqual([1, 1, -2]);
+    expect(() => duplicatesSummary([Infinity])).toThrow(TypeError);
+    expect(() => duplicatesSummary("1,2")).toThrow(TypeError);
+  });
+});
