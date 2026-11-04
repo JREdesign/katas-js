@@ -5,3 +5,20 @@ export function removeDuplicates(numbers) {
 
   return [...new Set(numbers)];
 }
+
+export function findDuplicates(numbers) {
+  removeDuplicates(numbers);
+
+  const seen = new Set();
+  const duplicates = new Set();
+
+  for (const number of numbers) {
+    if (seen.has(number)) {
+      duplicates.add(number);
+    } else {
+      seen.add(number);
+    }
+  }
+
+  return [...duplicates];
+}
