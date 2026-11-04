@@ -22,3 +22,16 @@ export function findDuplicates(numbers) {
 
   return [...duplicates];
 }
+
+export function duplicatesSummary(numbers) {
+  const unique = removeDuplicates(numbers);
+  const duplicates = findDuplicates(numbers);
+
+  return {
+    unique,
+    duplicates,
+    total: numbers.length,
+    uniqueCount: unique.length,
+    duplicateCount: numbers.length - unique.length,
+  };
+}
