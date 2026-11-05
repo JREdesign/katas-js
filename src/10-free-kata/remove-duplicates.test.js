@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { removeDuplicates, findDuplicates, duplicatesSummary } from "./remove-duplicates.js";
+import { removeDuplicates, findDuplicates, duplicatesSummary, countOccurrences } from "./remove-duplicates.js";
 
 describe("removeDuplicates", () => {
   it("elimina duplicados conservando el orden de aparición", () => {
@@ -77,5 +77,31 @@ describe("duplicatesSummary", () => {
     expect(numbers).toEqual([1, 1, -2]);
     expect(() => duplicatesSummary([Infinity])).toThrow(TypeError);
     expect(() => duplicatesSummary("1,2")).toThrow(TypeError);
+  });
+});
+
+describe("countOccurrences", () => {
+  it("cuenta cada número conservando el orden de primera aparición", () => {
+    expect(countOccurrences([3, 1, 3, 2, 1, 3])).toEqual([
+      { value: 3, count: 3 },
+      { value: 1, count: 2 },
+      { value: 2, count: 1 },
+    ]);
+  });
+
+  it("maneja arrays vacíos, negativos y decimales sin modificar el original", () => {
+    const original = [-2, 1.5, -2];
+    expect(countOccurrences(original)).toEqual([
+      { value: -2, count: 2 },
+      { value: 1.5, count: 1 },
+    ]);
+    expect(original).toEqual([-2, 1.5, -2]);
+    expect(countOccurrences([])).toEqual([]);
+  });
+
+  it("rechaza entradas inválidas", () => {
+    expect(() => countOccurrences(null)).toThrow(TypeError);
+    expect(() => countOccurrences([1, NaN])).toThrow(TypeError);
+    expect(() => countOccurrences([Infinity])).toThrow(TypeError);
   });
 });
