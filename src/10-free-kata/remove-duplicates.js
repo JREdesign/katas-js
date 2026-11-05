@@ -35,3 +35,14 @@ export function duplicatesSummary(numbers) {
     duplicateCount: numbers.length - unique.length,
   };
 }
+
+export function countOccurrences(numbers) {
+  removeDuplicates(numbers);
+
+  const counts = new Map();
+  for (const number of numbers) {
+    counts.set(number, (counts.get(number) ?? 0) + 1);
+  }
+
+  return [...counts].map(([value, count]) => ({ value, count }));
+}
