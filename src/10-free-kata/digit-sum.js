@@ -15,3 +15,11 @@ export function countDigits(number) {
 
   return String(Math.abs(number)).length;
 }
+
+export function digitSummary(number) {
+  return {
+    sum: sumDigits(number),
+    count: countDigits(number),
+    isEvenSum: sumDigits(number) % 2 === 0,
+  };
+}
