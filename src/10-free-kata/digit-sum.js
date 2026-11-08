@@ -7,3 +7,11 @@ export function sumDigits(number) {
     .split("")
     .reduce((sum, digit) => sum + Number(digit), 0);
 }
+
+export function countDigits(number) {
+  if (!Number.isSafeInteger(number)) {
+    throw new TypeError("countDigits: se esperaba un entero seguro");
+  }
+
+  return String(Math.abs(number)).length;
+}
