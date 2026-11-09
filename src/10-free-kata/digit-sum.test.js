@@ -37,3 +37,32 @@ describe("countDigits", () => {
     expect(() => countDigits(null)).toThrow(TypeError);
   });
 });
+
+describe("digitSummary", () => {
+  it("devuelve la suma, el número de dígitos y la paridad de una suma par", () => {
+    expect(digitSummary(1234)).toEqual({
+      sum: 10,
+      count: 4,
+      isEvenSum: true,
+    });
+  });
+
+  it("detecta sumas impares y admite números negativos y cero", () => {
+    expect(digitSummary(-124)).toEqual({
+      sum: 7,
+      count: 3,
+      isEvenSum: false,
+    });
+    expect(digitSummary(0)).toEqual({
+      sum: 0,
+      count: 1,
+      isEvenSum: true,
+    });
+  });
+
+  it("rechaza entradas no válidas", () => {
+    expect(() => digitSummary(1.5)).toThrow(TypeError);
+    expect(() => digitSummary("123")).toThrow(TypeError);
+    expect(() => digitSummary(Infinity)).toThrow(TypeError);
+  });
+});
