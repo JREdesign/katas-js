@@ -7,3 +7,11 @@ export function countVowels(text) {
 
   return [...text.toLowerCase()].filter((letter) => VOWELS.has(letter)).length;
 }
+
+export function extractVowels(text) {
+  if (typeof text !== "string") {
+    throw new TypeError("extractVowels: se esperaba una cadena de texto");
+  }
+
+  return [...text].filter((letter) => VOWELS.has(letter.toLowerCase()));
+}
