@@ -15,3 +15,7 @@ export function extractVowels(text) {
 
   return [...text].filter((letter) => VOWELS.has(letter.toLowerCase()));
 }
+
+export function hasVowels(text) {
+  return countVowels(text) > 0;
+}
