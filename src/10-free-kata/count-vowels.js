@@ -1,4 +1,4 @@
-const VOWELS = new Set(["a", "e", "i", "o", "u"]);
+const VOWELS = new Set(["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ú", "ü"]);
 
 export function countVowels(text) {
   if (typeof text !== "string") {
