@@ -21,3 +21,24 @@ describe("reverseWords", () => {
     expect(() => reverseWords(["hola", "mundo"])).toThrow(TypeError);
   });
 });
+
+describe("countWords", () => {
+  it("cuenta las palabras de una cadena", () => {
+    expect(countWords("Hola mundo JavaScript")).toBe(3);
+    expect(countWords("una")).toBe(1);
+  });
+
+  it("ignora espacios repetidos, saltos de línea y tabulaciones", () => {
+    expect(countWords("  uno   dos\t tres\n")).toBe(3);
+  });
+
+  it("devuelve cero en cadenas vacías o compuestas solo por espacios", () => {
+    expect(countWords("")).toBe(0);
+    expect(countWords(" \n\t ")).toBe(0);
+  });
+
+  it("rechaza argumentos que no sean cadenas de texto", () => {
+    expect(() => countWords(undefined)).toThrow(TypeError);
+    expect(() => countWords(42)).toThrow(TypeError);
+  });
+});
