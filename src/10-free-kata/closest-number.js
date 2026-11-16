@@ -17,3 +17,7 @@ export function closestNumberIndex(numbers, target) {
   const closest = closestNumber(numbers, target);
   return numbers.indexOf(closest);
 }
+
+export function closestNumberDistance(numbers, target) {
+  return Math.abs(closestNumber(numbers, target) - target);
+}
