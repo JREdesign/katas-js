@@ -35,3 +35,9 @@ export function hasExactMatch(numbers, target) {
   validateNumbers(numbers, target);
   return numbers.includes(target);
 }
+
+export function closestNumberTies(numbers, target) {
+  validateNumbers(numbers, target);
+  const distance = closestNumberDistance(numbers, target);
+  return numbers.filter((value) => Math.abs(value - target) === distance);
+}
