@@ -11,3 +11,9 @@ export function closestNumber(numbers, target) {
     Math.abs(value - target) < Math.abs(closest - target) ? value : closest
   );
 }
+
+export function closestNumberIndex(numbers, target) {
+  validateNumbers(numbers, target);
+  const closest = closestNumber(numbers, target);
+  return numbers.indexOf(closest);
+}
