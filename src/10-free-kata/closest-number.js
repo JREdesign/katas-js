@@ -30,3 +30,8 @@ export function closestNumberSummary(numbers, target) {
     distance: Math.abs(numbers[index] - target),
   };
 }
+
+export function hasExactMatch(numbers, target) {
+  validateNumbers(numbers, target);
+  return numbers.includes(target);
+}
