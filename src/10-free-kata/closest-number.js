@@ -21,3 +21,12 @@ export function closestNumberIndex(numbers, target) {
 export function closestNumberDistance(numbers, target) {
   return Math.abs(closestNumber(numbers, target) - target);
 }
+
+export function closestNumberSummary(numbers, target) {
+  const index = closestNumberIndex(numbers, target);
+  return {
+    value: numbers[index],
+    index,
+    distance: Math.abs(numbers[index] - target),
+  };
+}
