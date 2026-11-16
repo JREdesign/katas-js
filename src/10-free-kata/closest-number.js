@@ -1,0 +1,13 @@
+function validateNumbers(numbers, target) {
+  if (!Array.isArray(numbers) || numbers.length === 0 ||
+      !numbers.every(Number.isFinite) || !Number.isFinite(target)) {
+    throw new TypeError("closestNumber: se esperaba un array no vacío de números finitos y un objetivo finito");
+  }
+}
+
+export function closestNumber(numbers, target) {
+  validateNumbers(numbers, target);
+  return numbers.reduce((closest, value) =>
+    Math.abs(value - target) < Math.abs(closest - target) ? value : closest
+  );
+}
