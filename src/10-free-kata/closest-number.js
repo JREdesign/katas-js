@@ -41,3 +41,7 @@ export function closestNumberTies(numbers, target) {
   const distance = closestNumberDistance(numbers, target);
   return numbers.filter((value) => Math.abs(value - target) === distance);
 }
+
+export function closestNumberTieCount(numbers, target) {
+  return closestNumberTies(numbers, target).length;
+}
