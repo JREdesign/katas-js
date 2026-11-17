@@ -45,3 +45,7 @@ export function closestNumberTies(numbers, target) {
 export function closestNumberTieCount(numbers, target) {
   return closestNumberTies(numbers, target).length;
 }
+
+export function hasUniqueClosestNumber(numbers, target) {
+  return closestNumberTieCount(numbers, target) === 1;
+}
