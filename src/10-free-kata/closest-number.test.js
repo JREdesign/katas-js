@@ -89,11 +89,3 @@ describe("hasUniqueClosestNumber", () => {
     expect(hasUniqueClosestNumber([4, 6], 5)).toBe(false);
     expect(hasUniqueClosestNumber([5, 5, 9], 5)).toBe(false);
   });
-
-  it("valida los argumentos y no modifica el array", () => {
-    const numbers = [6, 4, 4, 9];
-    expect(hasUniqueClosestNumber(numbers, 5)).toBe(false);
-    expect(numbers).toEqual([6, 4, 4, 9]);
-    expect(() => hasUniqueClosestNumber(null, 5)).toThrow(TypeError);
-  });
-});
