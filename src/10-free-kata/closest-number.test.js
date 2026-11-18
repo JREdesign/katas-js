@@ -28,3 +28,36 @@ describe("closestNumber", () => {
     expect(() => closestNumber("1,2", 1)).toThrow(TypeError);
   });
 });
+
+describe("closestNumberIndex y closestNumberDistance", () => {
+  it("devuelve el índice de la primera coincidencia más cercana", () => {
+    expect(closestNumberIndex([10, 3, 3, 8], 4)).toBe(1);
+    expect(closestNumberIndex([6, 4], 5)).toBe(0);
+  });
+
+  it("calcula la distancia absoluta al objetivo", () => {
+    expect(closestNumberDistance([1, 8, 15], 10)).toBe(2);
+    expect(closestNumberDistance([-5, -1], -2)).toBe(1);
+    expect(closestNumberDistance([4, 9], 9)).toBe(0);
+  });
+
+  it("valida los argumentos de ambas funciones", () => {
+    expect(() => closestNumberIndex([], 1)).toThrow(TypeError);
+    expect(() => closestNumberDistance([2], NaN)).toThrow(TypeError);
+  });
+});
+
+describe("closestNumberSummary y hasExactMatch", () => {
+  it("resume el valor, índice y distancia", () => {
+    expect(closestNumberSummary([3, 7, 12], 8)).toEqual({
+      value: 7,
+      index: 1,
+      distance: 1,
+    });
+  });
+
+  it("detecta coincidencias exactas", () => {
+    expect(hasExactMatch([2, 4, 6], 4)).toBe(true);
+    expect(hasExactMatch([2, 4, 6], 5)).toBe(false);
+  });
+});
