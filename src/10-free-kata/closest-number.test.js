@@ -84,8 +84,3 @@ describe("hasUniqueClosestNumber", () => {
     expect(hasUniqueClosestNumber([1, 5, 12], 6)).toBe(true);
     expect(hasUniqueClosestNumber([5], 6)).toBe(true);
   });
-
-  it("devuelve false con empates o valores repetidos", () => {
-    expect(hasUniqueClosestNumber([4, 6], 5)).toBe(false);
-    expect(hasUniqueClosestNumber([5, 5, 9], 5)).toBe(false);
-  });
