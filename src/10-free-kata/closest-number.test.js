@@ -78,3 +78,22 @@ describe("closestNumberTies", () => {
     expect(() => closestNumberTieCount([1, Infinity], 2)).toThrow(TypeError);
   });
 });
+
+describe("hasUniqueClosestNumber", () => {
+  it("devuelve true si solo hay un elemento a la distancia mínima", () => {
+    expect(hasUniqueClosestNumber([1, 5, 12], 6)).toBe(true);
+    expect(hasUniqueClosestNumber([5], 6)).toBe(true);
+  });
+
+  it("devuelve false con empates o valores repetidos", () => {
+    expect(hasUniqueClosestNumber([4, 6], 5)).toBe(false);
+    expect(hasUniqueClosestNumber([5, 5, 9], 5)).toBe(false);
+  });
+
+  it("valida los argumentos y no modifica el array", () => {
+    const numbers = [6, 4, 4, 9];
+    expect(hasUniqueClosestNumber(numbers, 5)).toBe(false);
+    expect(numbers).toEqual([6, 4, 4, 9]);
+    expect(() => hasUniqueClosestNumber(null, 5)).toThrow(TypeError);
+  });
+});
