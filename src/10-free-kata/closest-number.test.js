@@ -61,3 +61,20 @@ describe("closestNumberSummary y hasExactMatch", () => {
     expect(hasExactMatch([2, 4, 6], 5)).toBe(false);
   });
 });
+
+describe("closestNumberTies", () => {
+  it("devuelve todos los valores empatados en orden de aparición", () => {
+    expect(closestNumberTies([6, 4, 8, 4], 5)).toEqual([6, 4, 4]);
+    expect(closestNumberTies([1, 3, 10], 3)).toEqual([3]);
+  });
+
+  it("cuenta todas las apariciones empatadas", () => {
+    expect(closestNumberTieCount([6, 4, 4, 9], 5)).toBe(3);
+    expect(closestNumberTieCount([1, 8, 12], 9)).toBe(1);
+  });
+
+  it("rechaza entradas inválidas", () => {
+    expect(() => closestNumberTies([], 0)).toThrow(TypeError);
+    expect(() => closestNumberTieCount([1, Infinity], 2)).toThrow(TypeError);
+  });
+});
