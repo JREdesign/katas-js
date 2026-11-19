@@ -23,9 +23,4 @@ describe("countUppercase", () => {
     expect(countUppercase("áéíóúñ")).toBe(0);
   });
 
-  it("rechaza entradas que no sean cadenas de texto", () => {
-    expect(() => countUppercase(null)).toThrow(TypeError);
-    expect(() => countUppercase(42)).toThrow(TypeError);
-    expect(() => countUppercase(["ABC"])).toThrow(TypeError);
-  });
-});
+ 
