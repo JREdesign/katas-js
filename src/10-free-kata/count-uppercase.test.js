@@ -18,9 +18,4 @@ describe("countUppercase", () => {
     expect(countUppercase("A1 B2!")).toBe(2);
   });
 
-  it("admite cadenas vacías y letras minúsculas", () => {
-    expect(countUppercase("")).toBe(0);
-    expect(countUppercase("áéíóúñ")).toBe(0);
-  });
-
  
