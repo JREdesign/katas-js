@@ -9,7 +9,7 @@ describe("countUppercase", () => {
   });
 
   it("reconoce mayúsculas con tilde y la letra Ñ", () => {
-    expect(countUppercase("ÁRBOL y ÑANDÚ")).toBe(9);
+    expect(countUppercase("ÁRBOL y ÑANDÚ")).toBe(10);
     expect(countUppercase("Éxito")).toBe(1);
   });
 
