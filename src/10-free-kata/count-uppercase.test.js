@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { countUppercase, extractUppercase } from "./count-uppercase.js";
+import { countUppercase, extractUppercase, hasUppercase } from "./count-uppercase.js";
 
 describe("countUppercase", () => {
   it("cuenta las letras mayúsculas de una cadena", () => {
@@ -35,5 +35,22 @@ describe("extractUppercase", () => {
     expect(extractUppercase("")).toBe("");
     expect(extractUppercase("abc")).toBe("");
     expect(() => extractUppercase(42)).toThrow(TypeError);
+  });
+});
+
+describe("hasUppercase", () => {
+  it("detecta mayúsculas normales y acentuadas", () => {
+    expect(hasUppercase("hola Mundo")).toBe(true);
+    expect(hasUppercase("ñ Ñ")).toBe(true);
+  });
+
+  it("devuelve false cuando no hay mayúsculas", () => {
+    expect(hasUppercase("hola 123!")).toBe(false);
+    expect(hasUppercase("")).toBe(false);
+  });
+
+  it("rechaza argumentos que no sean cadenas", () => {
+    expect(() => hasUppercase(null)).toThrow(TypeError);
+    expect(() => hasUppercase(123)).toThrow(TypeError);
   });
 });
