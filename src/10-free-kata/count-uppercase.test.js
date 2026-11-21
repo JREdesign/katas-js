@@ -54,3 +54,18 @@ describe("hasUppercase", () => {
     expect(() => hasUppercase(123)).toThrow(TypeError);
   });
 });
+
+describe("mayúsculas Unicode", () => {
+  it.each([
+    ["ΑβΓ", "ΑΓ"],
+    ["ПрИвет", "ПИ"],
+    ["𐐀𐐨", "𐐀"],
+    ["A🙂É中", "AÉ"],
+    ["A\u0301b", "A"],
+    ["你好🙂123", ""],
+  ])("procesa correctamente %s", (text, expected) => {
+    expect(extractUppercase(text)).toBe(expected);
+    expect(countUppercase(text)).toBe([...expected].length);
+    expect(hasUppercase(text)).toBe(expected.length > 0);
+  });
+});
