@@ -19,3 +19,7 @@ export function extractUppercase(text) {
     character.toLocaleLowerCase() !== character
   ).join("");
 }
+
+export function hasUppercase(text) {
+  return countUppercase(text) > 0;
+}
