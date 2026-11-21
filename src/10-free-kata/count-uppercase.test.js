@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { countUppercase } from "./count-uppercase.js";
+import { countUppercase, extractUppercase } from "./count-uppercase.js";
 
 describe("countUppercase", () => {
   it("cuenta las letras mayúsculas de una cadena", () => {
@@ -18,4 +18,22 @@ describe("countUppercase", () => {
     expect(countUppercase("A1 B2!")).toBe(2);
   });
 
- 
+  it("admite cadenas vacías y rechaza entradas inválidas", () => {
+    expect(countUppercase("")).toBe(0);
+    expect(() => countUppercase(null)).toThrow(TypeError);
+  });
+});
+
+describe("extractUppercase", () => {
+  it("extrae las mayúsculas conservando su orden", () => {
+    expect(extractUppercase("Hola MUNDO")).toBe("HMUNDO");
+    expect(extractUppercase("Árbol y Ñandú")).toBe("ÁÑ");
+  });
+
+  it("ignora números y símbolos y admite cadenas vacías", () => {
+    expect(extractUppercase("a1!B2")).toBe("B");
+    expect(extractUppercase("")).toBe("");
+    expect(extractUppercase("abc")).toBe("");
+    expect(() => extractUppercase(42)).toThrow(TypeError);
+  });
+});
