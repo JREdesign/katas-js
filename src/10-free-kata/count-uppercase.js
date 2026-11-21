@@ -8,3 +8,14 @@ export function countUppercase(text) {
     character.toLocaleLowerCase() !== character
   ).length;
 }
+
+export function extractUppercase(text) {
+  if (typeof text !== "string") {
+    throw new TypeError("extractUppercase: se esperaba una cadena de texto");
+  }
+
+  return [...text].filter((character) =>
+    character.toLocaleUpperCase() === character &&
+    character.toLocaleLowerCase() !== character
+  ).join("");
+}
