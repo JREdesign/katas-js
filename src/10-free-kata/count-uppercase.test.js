@@ -69,3 +69,24 @@ describe("mayúsculas Unicode", () => {
     expect(hasUppercase(text)).toBe(expected.length > 0);
   });
 });
+
+describe("coherencia entre funciones de mayúsculas", () => {
+  it.each(["", "hola", "AAaBB", "  A\tB\nC  ", "Ñandú", "𐐀aÉ"])(
+    "mantiene resultados coherentes para %j",
+    (text) => {
+      const extracted = extractUppercase(text);
+      expect(countUppercase(text)).toBe([...extracted].length);
+      expect(hasUppercase(text)).toBe(countUppercase(text) > 0);
+      expect(extractUppercase(extracted)).toBe(extracted);
+    }
+  );
+
+  it.each([undefined, null, 42, true, [], {}])(
+    "rechaza la entrada no textual %j en las tres funciones",
+    (value) => {
+      expect(() => countUppercase(value)).toThrow(TypeError);
+      expect(() => extractUppercase(value)).toThrow(TypeError);
+      expect(() => hasUppercase(value)).toThrow(TypeError);
+    }
+  );
+});
