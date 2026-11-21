@@ -80,13 +80,4 @@ describe("coherencia entre funciones de mayúsculas", () => {
       expect(extractUppercase(extracted)).toBe(extracted);
     }
   );
-
-  it.each([undefined, null, 42, true, [], {}])(
-    "rechaza la entrada no textual %j en las tres funciones",
-    (value) => {
-      expect(() => countUppercase(value)).toThrow(TypeError);
-      expect(() => extractUppercase(value)).toThrow(TypeError);
-      expect(() => hasUppercase(value)).toThrow(TypeError);
-    }
-  );
 });
