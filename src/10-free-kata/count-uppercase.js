@@ -23,3 +23,14 @@ export function extractUppercase(text) {
 export function hasUppercase(text) {
   return countUppercase(text) > 0;
 }
+
+export function countLowercase(text) {
+  if (typeof text !== "string") {
+    throw new TypeError("countLowercase: se esperaba una cadena de texto");
+  }
+
+  return [...text].filter((character) =>
+    character.toLocaleLowerCase() === character &&
+    character.toLocaleUpperCase() !== character
+  ).length;
+}
