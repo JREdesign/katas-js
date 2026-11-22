@@ -90,7 +90,7 @@ describe("countLowercase", () => {
   });
 
   it("reconoce letras minúsculas Unicode", () => {
-    expect(countLowercase("Árbol y Ñandú")).toBe(8);
+    expect(countLowercase("Árbol y Ñandú")).toBe(9);
     expect(countLowercase("ΑβΓ")).toBe(1);
   });
 
