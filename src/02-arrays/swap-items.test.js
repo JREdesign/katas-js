@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { swapItems } from "./swap-items.js";
+import { swapItems, swapAdjacent } from "./swap-items.js";
 
 describe("swapItems", () => {
   it("intercambia dos elementos del array", () => {
@@ -84,5 +84,31 @@ describe("swapItems: validación exhaustiva de índices", () => {
     const result = swapItems(original, 0, 0);
     expect(result).toEqual(["único"]);
     expect(result).not.toBe(original);
+  });
+});
+
+describe("swapAdjacent", () => {
+  it("intercambia un elemento con su siguiente", () => {
+    expect(swapAdjacent(["a", "b", "c"], 1)).toEqual(["a", "c", "b"]);
+    expect(swapAdjacent([1, 2], 0)).toEqual([2, 1]);
+  });
+
+  it("no modifica el array original", () => {
+    const original = [10, 20, 30];
+    const result = swapAdjacent(original, 0);
+    expect(result).toEqual([20, 10, 30]);
+    expect(original).toEqual([10, 20, 30]);
+    expect(result).not.toBe(original);
+  });
+
+  it("rechaza índices sin elemento siguiente", () => {
+    expect(() => swapAdjacent([1, 2], 1)).toThrow(RangeError);
+    expect(() => swapAdjacent([], 0)).toThrow(RangeError);
+    expect(() => swapAdjacent([1, 2], -1)).toThrow(RangeError);
+    expect(() => swapAdjacent([1, 2], 0.5)).toThrow(RangeError);
+  });
+
+  it("rechaza valores que no sean arrays", () => {
+    expect(() => swapAdjacent(null, 0)).toThrow(TypeError);
   });
 });
