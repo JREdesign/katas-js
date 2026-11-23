@@ -31,3 +31,27 @@ describe("swapItems", () => {
     expect(() => swapItems([1, 2], 0.5, 1)).toThrow(RangeError);
   });
 });
+
+describe("swapItems: casos adicionales", () => {
+  it("intercambia valores repetidos sin alterar otras posiciones", () => {
+    expect(swapItems([1, 2, 1, 3], 1, 3)).toEqual([1, 3, 1, 2]);
+  });
+
+  it("conserva las referencias de objetos y no modifica sus datos", () => {
+    const first = { id: 1 };
+    const second = { id: 2 };
+    const original = [first, second];
+    const result = swapItems(original, 0, 1);
+
+    expect(result[0]).toBe(second);
+    expect(result[1]).toBe(first);
+    expect(original).toEqual([first, second]);
+  });
+
+  it("dos intercambios de los mismos índices restauran el contenido", () => {
+    const original = ["uno", "dos", "tres"];
+    const swapped = swapItems(original, 0, 2);
+    expect(swapItems(swapped, 0, 2)).toEqual(original);
+    expect(original).toEqual(["uno", "dos", "tres"]);
+  });
+});
