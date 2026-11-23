@@ -108,3 +108,7 @@ describe("swapAdjacent", () => {
     expect(() => swapAdjacent([1, 2], 0.5)).toThrow(RangeError);
   });
 
+  it("rechaza valores que no sean arrays", () => {
+    expect(() => swapAdjacent(null, 0)).toThrow(TypeError);
+  });
+});
