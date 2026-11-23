@@ -25,3 +25,18 @@ export function swapItems(items, firstIndex, secondIndex) {
   ];
   return result;
 }
+
+/**
+ * Intercambia un elemento con el siguiente, sin modificar el array original.
+ */
+export function swapAdjacent(items, index) {
+  if (!Array.isArray(items)) {
+    throw new TypeError("swapAdjacent: se esperaba un array");
+  }
+
+  if (!Number.isInteger(index) || index < 0 || index >= items.length - 1) {
+    throw new RangeError("swapAdjacent: el índice debe tener un elemento siguiente");
+  }
+
+  return swapItems(items, index, index + 1);
+}
