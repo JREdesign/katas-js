@@ -55,3 +55,34 @@ describe("swapItems: casos adicionales", () => {
     expect(original).toEqual(["uno", "dos", "tres"]);
   });
 });
+
+describe("swapItems: validación exhaustiva de índices", () => {
+  it.each([
+    [NaN, 0],
+    [Infinity, 0],
+    [0, -Infinity],
+    [0, 1.5],
+    [undefined, 0],
+    [0, "1"],
+    [2, 0],
+    [0, -1],
+  ])("rechaza los índices %s y %s", (firstIndex, secondIndex) => {
+    expect(() => swapItems(["a", "b"], firstIndex, secondIndex)).toThrow(
+      RangeError
+    );
+  });
+
+  it.each([null, undefined, 23, {}, "texto"])(
+    "rechaza el valor no-array %s",
+    (value) => {
+      expect(() => swapItems(value, 0, 0)).toThrow(TypeError);
+    }
+  );
+
+  it("admite un array de un elemento sin mutarlo", () => {
+    const original = ["único"];
+    const result = swapItems(original, 0, 0);
+    expect(result).toEqual(["único"]);
+    expect(result).not.toBe(original);
+  });
+});
