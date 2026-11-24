@@ -12,3 +12,10 @@ export function isPowerOfTwo(number) {
 
   return number === 1;
 }
+
+/**
+ * Devuelve el exponente de una potencia de dos o null si no lo es.
+ */
+export function powerOfTwoExponent(number) {
+  return isPowerOfTwo(number) ? Math.log2(number) : null;
+}
