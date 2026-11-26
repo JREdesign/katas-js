@@ -24,3 +24,15 @@ export function parseCliFlags(args) {
 
   return Object.fromEntries(entries);
 }
+
+/**
+ * Combina las opciones de línea de comandos con valores predeterminados.
+ * Las opciones explícitas prevalecen, incluso si contienen un valor vacío.
+ */
+export function parseCliFlagsWithDefaults(args, defaults = {}) {
+  if (defaults === null || typeof defaults !== "object" || Array.isArray(defaults)) {
+    throw new TypeError("parseCliFlagsWithDefaults: se esperaba un objeto de valores predeterminados");
+  }
+
+  return { ...defaults, ...parseCliFlags(args) };
+}
