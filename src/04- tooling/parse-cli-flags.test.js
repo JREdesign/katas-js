@@ -36,3 +36,40 @@ describe("parseCliFlags", () => {
     });
   });
 });
+
+describe("parseCliFlags: casos límite", () => {
+  it("devuelve un objeto vacío sin opciones", () => {
+    expect(parseCliFlags([])).toEqual({});
+    expect(parseCliFlags(["build", "-v"])).toEqual({});
+  });
+
+  it("deja de interpretar opciones después del separador --", () => {
+    expect(parseCliFlags(["--watch", "--", "--mode=prod"])).toEqual({
+      watch: true,
+    });
+  });
+
+  it("conserva valores vacíos y signos igual adicionales", () => {
+    expect(parseCliFlags(["--name=", "--query=a=b=c"])).toEqual({
+      name: "",
+      query: "a=b=c",
+    });
+  });
+
+  it("ignora opciones sin nombre", () => {
+    expect(parseCliFlags(["--=value", "--watch"])).toEqual({ watch: true });
+  });
+
+  it("no modifica el array original", () => {
+    const args = ["--watch", "--mode=dev"];
+    parseCliFlags(args);
+    expect(args).toEqual(["--watch", "--mode=dev"]);
+  });
+
+  it.each([[null], [undefined], ["--watch"], [42], [["--watch", 42]]])(
+    "rechaza argumentos inválidos: %j",
+    (value) => {
+      expect(() => parseCliFlags(value)).toThrow(TypeError);
+    }
+  );
+});
