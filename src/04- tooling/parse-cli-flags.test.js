@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseCliFlags } from "./parse-cli-flags.js";
+import { parseCliFlags, parseCliFlagsWithDefaults } from "./parse-cli-flags.js";
 
 describe("parseCliFlags", () => {
   it("interpreta opciones booleanas", () => {
@@ -72,4 +72,40 @@ describe("parseCliFlags: casos límite", () => {
       expect(() => parseCliFlags(value)).toThrow(TypeError);
     }
   );
+});
+
+describe("parseCliFlagsWithDefaults", () => {
+  it("conserva los valores predeterminados no especificados", () => {
+    expect(parseCliFlagsWithDefaults(["--watch"], { mode: "dev", watch: false }))
+      .toEqual({ mode: "dev", watch: true });
+  });
+
+  it("prioriza las opciones explícitas, incluidos valores vacíos", () => {
+    expect(parseCliFlagsWithDefaults(["--mode=prod", "--name="], {
+      mode: "dev",
+      name: "app",
+    })).toEqual({ mode: "prod", name: "" });
+  });
+
+  it("admite valores predeterminados omitidos", () => {
+    expect(parseCliFlagsWithDefaults(["--watch"])).toEqual({ watch: true });
+  });
+
+  it("no modifica el objeto de valores predeterminados", () => {
+    const defaults = Object.freeze({ mode: "dev" });
+    expect(parseCliFlagsWithDefaults(["--mode=prod"], defaults))
+      .toEqual({ mode: "prod" });
+    expect(defaults).toEqual({ mode: "dev" });
+  });
+
+  it.each([[null], [42], ["dev"], [[]]])(
+    "rechaza valores predeterminados inválidos: %j",
+    (defaults) => {
+      expect(() => parseCliFlagsWithDefaults([], defaults)).toThrow(TypeError);
+    }
+  );
+
+  it("mantiene la validación de argumentos del analizador original", () => {
+    expect(() => parseCliFlagsWithDefaults([42], {})).toThrow(TypeError);
+  });
 });
