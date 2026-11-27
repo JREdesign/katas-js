@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { parseCliFlags, parseCliFlagsWithDefaults } from "./parse-cli-flags.js";
+import { parseCliFlags, parseCliFlagsWithDefaults, hasCliFlag } from "./parse-cli-flags.js";
 
 describe("parseCliFlags", () => {
   it("interpreta opciones booleanas", () => {
@@ -120,5 +120,29 @@ describe("parseCliFlags: arrays dispersos", () => {
   it("mantiene la validación al combinar valores predeterminados", () => {
     expect(() => parseCliFlagsWithDefaults(new Array(1), { watch: false }))
       .toThrow(TypeError);
+  });
+});
+
+describe("hasCliFlag", () => {
+  it("detecta opciones booleanas y opciones con valor vacío", () => {
+    expect(hasCliFlag(["--watch", "--name="], "watch")).toBe(true);
+    expect(hasCliFlag(["--watch", "--name="], "name")).toBe(true);
+  });
+
+  it("ignora opciones ausentes y posteriores al separador", () => {
+    expect(hasCliFlag(["--watch", "--", "--mode=dev"], "mode")).toBe(false);
+    expect(hasCliFlag([], "watch")).toBe(false);
+  });
+
+  it("no confunde propiedades heredadas con opciones explícitas", () => {
+    expect(hasCliFlag([], "toString")).toBe(false);
+    expect(hasCliFlag(["--toString"], "toString")).toBe(true);
+    expect(hasCliFlag(["--__proto__=value"], "__proto__")).toBe(true);
+  });
+
+  it("valida el nombre y los argumentos", () => {
+    expect(() => hasCliFlag([], "")).toThrow(TypeError);
+    expect(() => hasCliFlag([], null)).toThrow(TypeError);
+    expect(() => hasCliFlag([42], "watch")).toThrow(TypeError);
   });
 });
