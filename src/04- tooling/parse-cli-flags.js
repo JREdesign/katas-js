@@ -36,3 +36,14 @@ export function parseCliFlagsWithDefaults(args, defaults = {}) {
 
   return { ...defaults, ...parseCliFlags(args) };
 }
+
+/**
+ * Comprueba si una opción aparece explícitamente antes del separador --.
+ */
+export function hasCliFlag(args, name) {
+  if (typeof name !== "string" || name.length === 0) {
+    throw new TypeError("hasCliFlag: se esperaba un nombre de opción no vacío");
+  }
+
+  return Object.hasOwn(parseCliFlags(args), name);
+}
