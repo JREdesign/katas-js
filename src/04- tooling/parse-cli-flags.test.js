@@ -109,3 +109,16 @@ describe("parseCliFlagsWithDefaults", () => {
     expect(() => parseCliFlagsWithDefaults([42], {})).toThrow(TypeError);
   });
 });
+
+describe("parseCliFlags: arrays dispersos", () => {
+  it("rechaza arrays con posiciones vacías", () => {
+    expect(() => parseCliFlags(new Array(2))).toThrow(TypeError);
+    const args = ["--watch", , "--mode=dev"];
+    expect(() => parseCliFlags(args)).toThrow(TypeError);
+  });
+
+  it("mantiene la validación al combinar valores predeterminados", () => {
+    expect(() => parseCliFlagsWithDefaults(new Array(1), { watch: false }))
+      .toThrow(TypeError);
+  });
+});
