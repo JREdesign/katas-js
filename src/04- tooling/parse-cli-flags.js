@@ -3,7 +3,7 @@
  * Ignora argumentos posicionales. La última opción repetida prevalece.
  */
 export function parseCliFlags(args) {
-  if (!Array.isArray(args) || !args.every((arg) => typeof arg === "string")) {
+  if (!Array.isArray(args) || !Array.from(args).every((arg) => typeof arg === "string")) {
     throw new TypeError("parseCliFlags: se esperaba un array de cadenas");
   }
 
